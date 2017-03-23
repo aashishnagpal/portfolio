@@ -1,0 +1,10 @@
+.header-bg {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 110vh;
+  overflow: hidden;
+  transform: skewY(-10deg);
+  transform-origin: 0;
+  background: linear-gradient(150deg, nth($color-palette, 1) 15%, nth($color-palette, 5) 70%, nth($color-palette, 7) 94%);;
+}

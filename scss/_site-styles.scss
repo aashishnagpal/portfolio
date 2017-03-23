@@ -1,0 +1,97 @@
+nav {
+  position: relative;
+}
+
+section {
+  position: relative;
+  padding: 5em 0;
+}
+
+header h1 {
+  position: relative;
+  color: $font-highlight-color;
+  margin: 0.2em 0;
+}
+
+
+
+.nav__search {
+  font-size: 1.5em;
+  position: relative;
+  flex: 1.5;
+
+  &-input {
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid nth($color-palette, 2);
+    color: inherit;
+    width: 100%;
+
+    &:focus {
+      border-bottom-color: $font-highlight-color;
+
+      + .nav__search-label {
+        font-size: 0.65em;
+        top: -1.5em;
+        color: $font-highlight-color;
+      }
+    }
+  }
+
+  &-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.about {
+  padding: 0 2em;
+  display: flex;
+  align-items: center;
+
+  &__img-container {
+    margin-right: 1em;
+    flex: 1;
+  }
+
+  &__img {
+    border-radius: 50%;
+    border: 0.3em solid $font-highlight-color;
+    width: 10em;
+    height: auto;
+  }
+
+  &__text {
+    flex: 6;
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+}
+
+a.regular-link {
+  color: $font-highlight-color;
+  margin-right: 1em;
+
+  &:hover {
+    color: $font-generic-color;
+  }
+
+  &:hover::after {
+    background: $font-highlight-color;
+  }
+
+
+}
+
+.fa {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+  vertical-align: middle;
+
+  &.fa-github, &.fa-external-link-square {
+    color: $github-brand-color;
+  }
+}

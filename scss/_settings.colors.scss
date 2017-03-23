@@ -1,0 +1,10 @@
+// Color palette - darker to lighter
+$color-palette: #373b44, #40444f, #4a4e5a, #515765, #5b616f, #636b7b, #b0b8c8, #e2eafa;
+// $compare-palette: #53f, #4f40ff, #4553ff, #1fa2ff, #05d5ff, #25ddf5, #abffcb;
+$generic-bg-color: nth($color-palette, 2);
+$generic-fg-color: nth($color-palette, 8);
+$font-generic-color: #ebebeb;
+$font-highlight-color: #ef4d75;
+$highlight-bg-color: $font-highlight-color;
+
+$github-brand-color: #171515;

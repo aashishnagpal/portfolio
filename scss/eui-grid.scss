@@ -1,0 +1,41 @@
+.eui-grid {
+  $columns: 12 !default;
+  $gutter-width: 1.6% !default;
+
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    margin: 1% 0 1% $gutter-width;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  @function col-width($columns, $gutter-width, $col-size) {
+    $atomic-width: (100 - ($gutter-width * ($columns - 1))) / $columns;
+
+    $col-content-width: $atomic-width * $col-size;
+    $added-gutter: ($col-size - 1) * $gutter-width;
+
+    @return floor(($col-content-width + $added-gutter) * 100) / 100;
+  }
+
+  @for $col-size from 1 through $columns {
+    &__col-size-#{$col-size}-of-#{$columns} {
+      width: col-width($columns, $gutter-width, $col-size);
+    }
+  }
+}

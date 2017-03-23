@@ -1,0 +1,99 @@
+/**
+ * Navigation Styles
+ */
+
+.nav {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  @at-root %transparent {
+    background: transparent;
+    color: $font-generic-color;
+  }
+
+  &, &--horizontal {
+    @extend %transparent;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--vertical {
+    &-left, &-right {
+      @extend %transparent;
+      flex-direction: column;
+      max-height: 100vh;
+      height: auto;
+    }
+  }
+
+  &--sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+  }
+
+  &__item {
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    flex: 1;
+
+    &:hover {
+      color: $font-highlight-color;
+      animation: nav__item--hover-anime 1s ease-in-out;
+
+      &::before {
+        color: $font-highlight-color;
+        animation: nav__item-before--hover-anime 1s ease-in-out;
+      }
+
+      &::after {
+        color: $font-highlight-color;
+        animation: nav__item-after--hover-anime 1s ease-in-out;
+      }
+    }
+
+    &::before, &::after {
+      font-family: $source-code-pro-font;
+      font-size: 1.15em;
+      position: absolute;
+      top: 0;
+      transition: transform 0.3s linear;
+    }
+
+    &::before {
+      content: '<';
+      left: calc(5%);
+    }
+
+    &::after {
+      content: '>';
+      right: calc(5%);
+    }
+
+    &--active {
+      color: $font-highlight-color;
+    }
+  }
+}
+
+@keyframes nav__item-before--hover-anime {
+  50% {
+    left: calc(49%);
+  }
+}
+
+@keyframes nav__item-after--hover-anime {
+  50% {
+    right: calc(49%);
+  }
+}
+
+@keyframes nav__item--hover-anime {
+  40%, 60% {
+    color: transparent;
+  }
+}

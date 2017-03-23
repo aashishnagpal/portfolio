@@ -1,0 +1,28 @@
+.pc-graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  @at-root .pc-graph {
+    display: flex;
+    margin: 0 0 1em;
+    height: 2em;
+    border-radius: 2px;
+
+    &__section {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 0;
+      //transition: width 2s ease-in-out;
+
+      &:nth-of-type(2n+1) {
+        background: $highlight-bg-color;
+      }
+      &:nth-of-type(2n) {
+        background: nth($color-palette, 5);
+      }
+    }
+  }
+}
