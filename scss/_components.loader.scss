@@ -22,7 +22,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: $secondary-color;
+    background: $generic-fg-color;
     transition: opacity 0.3s;
     z-index: $infinity - 1;
 
@@ -61,8 +61,8 @@
     }
 
     &::before {
-      border: 0.4em solid $generic-black-color;
-      border-top-color: $primary-dark-color;
+      border: 0.4em solid $generic-bg-color;
+      border-top-color: $highlight-bg-color;
       animation: rotate 0.8s linear 0s normal infinite forwards running;
     }
   }

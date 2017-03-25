@@ -13,8 +13,6 @@ header h1 {
   margin: 0.2em 0;
 }
 
-
-
 .nav__search {
   font-size: 1.5em;
   position: relative;
@@ -25,10 +23,12 @@ header h1 {
     outline: none;
     border: none;
     border-bottom: 2px solid nth($color-palette, 2);
-    color: inherit;
-    width: 100%;
+    color: transparent;
+    width: 85%;
+    transition: all 0.3s ease-in-out;
 
     &:focus {
+      color: inherit;
       border-bottom-color: $font-highlight-color;
 
       + .nav__search-label {
@@ -44,6 +44,24 @@ header h1 {
     top: 0;
     left: 0;
     transition: all 0.3s ease-in-out;
+  }
+
+  &-button {
+    width: 10%;
+    font-size: 0.9em;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+
+    &:hover {
+      color: $font-highlight-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -71,6 +89,21 @@ header h1 {
   }
 }
 
+blockquote {
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+  color: $font-highlight-color;
+  font-weight: 900;
+  position: relative;
+
+  .fa[class*="quote"] {
+    font-size: 0.6em;
+    vertical-align: top;
+  }
+
+}
+
 a.regular-link {
   color: $font-highlight-color;
   margin-right: 1em;
@@ -83,15 +116,34 @@ a.regular-link {
     background: $font-highlight-color;
   }
 
+  &--no-margin {
+    margin: 0;
+  }
 
 }
 
-.fa {
+.tabs__pane:nth-of-type(n+10) {
+  align-self: flex-end;
+}
+
+.fa-github, .fa-external-link-square {
   font-size: 1.2em;
   margin-right: 0.2em;
   vertical-align: middle;
+  color: $github-brand-color;
+}
 
-  &.fa-github, &.fa-external-link-square {
-    color: $github-brand-color;
-  }
+.image--height-override {
+  height: 30em;
+  width: auto;
+}
+
+.carousel-arrow-bg-override {
+  mix-blend-mode: difference;
+}
+
+footer {
+  text-align: center;
+  background: nth($color-palette, 1);
+  padding: 1em;
 }
