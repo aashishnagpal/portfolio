@@ -22,7 +22,7 @@ header h1 {
     background: transparent;
     outline: none;
     border: none;
-    border-bottom: 2px solid nth($color-palette, 2);
+    border-bottom: 2px solid $font-generic-color;
     color: transparent;
     width: 85%;
     transition: all 0.3s ease-in-out;

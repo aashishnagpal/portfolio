@@ -687,6 +687,40 @@ ul {
   -webkit-animation: rotate 0.8s linear 0s normal infinite forwards running;
           animation: rotate 0.8s linear 0s normal infinite forwards running;
 }
+/* line 70, ../scss/_components.loader.scss */
+.loader__load-box-3d {
+  width: 5em;
+  height: 5em;
+  padding: 0;
+  border-radius: 50%;
+  position: relative;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  z-index: 9999;
+}
+/* line 79, ../scss/_components.loader.scss */
+.loader__load-box-3d::before, .loader__load-box-3d::after {
+  content: '';
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0.3em solid #ef4d75;
+  -webkit-animation: 0.8s ease-in-out 0s alternate infinite running;
+          animation: 0.8s ease-in-out 0s alternate infinite running;
+}
+/* line 92, ../scss/_components.loader.scss */
+.loader__load-box-3d::before {
+  -webkit-animation-name: rotate3D-positive-axis;
+          animation-name: rotate3D-positive-axis;
+}
+/* line 96, ../scss/_components.loader.scss */
+.loader__load-box-3d::after {
+  -webkit-animation-name: rotate3D-negative-axis;
+          animation-name: rotate3D-negative-axis;
+}
 
 @-webkit-keyframes rotate {
   0% {
@@ -731,6 +765,30 @@ ul {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate3D-positive-axis {
+  to {
+    -webkit-transform: rotate3d(1, 1, 0, 90deg);
+            transform: rotate3d(1, 1, 0, 90deg);
+  }
+}
+@keyframes rotate3D-positive-axis {
+  to {
+    -webkit-transform: rotate3d(1, 1, 0, 90deg);
+            transform: rotate3d(1, 1, 0, 90deg);
+  }
+}
+@-webkit-keyframes rotate3D-negative-axis {
+  to {
+    -webkit-transform: rotate3d(-1, 1, 0, -90deg);
+            transform: rotate3d(-1, 1, 0, -90deg);
+  }
+}
+@keyframes rotate3D-negative-axis {
+  to {
+    -webkit-transform: rotate3d(-1, 1, 0, -90deg);
+            transform: rotate3d(-1, 1, 0, -90deg);
   }
 }
 /* line 1, ../scss/_components.header-bg.scss */
@@ -1931,7 +1989,7 @@ header h1 {
   background: transparent;
   outline: none;
   border: none;
-  border-bottom: 2px solid #40444f;
+  border-bottom: 2px solid #ebebeb;
   color: transparent;
   width: 85%;
   -webkit-transition: all 0.3s ease-in-out;
