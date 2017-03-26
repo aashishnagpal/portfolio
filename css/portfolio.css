@@ -576,27 +576,6 @@ a {
   text-decoration: none;
   position: relative;
 }
-/* line 7, ../scss/_elements.links.scss */
-a::after {
-  position: absolute;
-  left: 0;
-  bottom: -0.2em;
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: inherit;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-          transition: transform 0.3s ease-in-out;
-}
-/* line 19, ../scss/_elements.links.scss */
-a:hover::after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-}
 
 /* line 1, ../scss/_elements.lists.scss */
 ul {
@@ -708,8 +687,8 @@ ul {
   width: 100%;
   height: 100%;
   border: 0.3em solid #ed3663;
-  -webkit-animation: 0.8s ease-in-out 0s alternate infinite running;
-          animation: 0.8s ease-in-out 0s alternate infinite running;
+  -webkit-animation: 1.2s linear 0s infinite alternate running;
+          animation: 1.2s linear 0s infinite alternate running;
 }
 /* line 92, ../scss/_components.loader.scss */
 .loader__load-box-3d::before {
@@ -769,26 +748,26 @@ ul {
 }
 @-webkit-keyframes rotate3D-positive-axis {
   to {
-    -webkit-transform: rotate3d(1, 1, 0, 90deg);
-            transform: rotate3d(1, 1, 0, 90deg);
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+            transform: rotate3d(1, 1, 0, 180deg);
   }
 }
 @keyframes rotate3D-positive-axis {
   to {
-    -webkit-transform: rotate3d(1, 1, 0, 90deg);
-            transform: rotate3d(1, 1, 0, 90deg);
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+            transform: rotate3d(1, 1, 0, 180deg);
   }
 }
 @-webkit-keyframes rotate3D-negative-axis {
   to {
-    -webkit-transform: rotate3d(-1, 1, 0, -90deg);
-            transform: rotate3d(-1, 1, 0, -90deg);
+    -webkit-transform: rotate3d(-1, 1, 0, -180deg);
+            transform: rotate3d(-1, 1, 0, -180deg);
   }
 }
 @keyframes rotate3D-negative-axis {
   to {
-    -webkit-transform: rotate3d(-1, 1, 0, -90deg);
-            transform: rotate3d(-1, 1, 0, -90deg);
+    -webkit-transform: rotate3d(-1, 1, 0, -180deg);
+            transform: rotate3d(-1, 1, 0, -180deg);
   }
 }
 /* line 1, ../scss/_components.header-bg.scss */
@@ -821,7 +800,7 @@ ul {
 @media (min-width: 880px) {
   /* line 11, ../scss/_components.header-bg.scss */
   .header-bg--span {
-    height: 165px;
+    height: 180px;
   }
 }
 /* line 23, ../scss/_components.header-bg.scss */
@@ -1836,7 +1815,7 @@ ul {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   /* set perspective for 3D effect*/
-  margin: 10% auto;
+  margin: 0 auto;
 }
 
 /* line 9, ../scss/_components.business-card.scss */
@@ -2068,17 +2047,18 @@ nav {
 /* line 5, ../scss/_site-styles.scss */
 section {
   position: relative;
-  padding: 5em 0;
+  padding: 4em 0;
 }
 
 /* line 10, ../scss/_site-styles.scss */
 header h1 {
   position: relative;
   color: #ef4d75;
-  margin: 0.2em 0;
+  margin: 0.2em 0 !important;
+  font-size: 2.5em;
 }
 
-/* line 16, ../scss/_site-styles.scss */
+/* line 17, ../scss/_site-styles.scss */
 .nav__search {
   font-size: 1.5em;
   position: relative;
@@ -2087,7 +2067,7 @@ header h1 {
       -ms-flex: 1.5;
           flex: 1.5;
 }
-/* line 21, ../scss/_site-styles.scss */
+/* line 22, ../scss/_site-styles.scss */
 .nav__search-input {
   background: transparent;
   outline: none;
@@ -2098,18 +2078,18 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 30, ../scss/_site-styles.scss */
+/* line 31, ../scss/_site-styles.scss */
 .nav__search-input:focus {
   color: inherit;
   border-bottom-color: #ef4d75;
 }
-/* line 34, ../scss/_site-styles.scss */
+/* line 35, ../scss/_site-styles.scss */
 .nav__search-input:focus + .nav__search-label {
   font-size: 0.65em;
   top: -1.5em;
   color: #ef4d75;
 }
-/* line 42, ../scss/_site-styles.scss */
+/* line 43, ../scss/_site-styles.scss */
 .nav__search-label {
   position: absolute;
   top: 0;
@@ -2117,7 +2097,7 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 49, ../scss/_site-styles.scss */
+/* line 50, ../scss/_site-styles.scss */
 .nav__search-button {
   width: 10%;
   font-size: 0.9em;
@@ -2127,16 +2107,16 @@ header h1 {
   margin: 0;
   color: inherit;
 }
-/* line 58, ../scss/_site-styles.scss */
+/* line 59, ../scss/_site-styles.scss */
 .nav__search-button:hover {
   color: #ef4d75;
 }
-/* line 62, ../scss/_site-styles.scss */
+/* line 63, ../scss/_site-styles.scss */
 .nav__search-button:focus {
   outline: none;
 }
 
-/* line 68, ../scss/_site-styles.scss */
+/* line 69, ../scss/_site-styles.scss */
 .about {
   padding: 0 2em;
   display: -webkit-box;
@@ -2148,7 +2128,7 @@ header h1 {
       -ms-flex-align: center;
           align-items: center;
 }
-/* line 73, ../scss/_site-styles.scss */
+/* line 74, ../scss/_site-styles.scss */
 .about__img-container {
   margin-right: 1em;
   -webkit-box-flex: 1;
@@ -2156,14 +2136,14 @@ header h1 {
       -ms-flex: 1;
           flex: 1;
 }
-/* line 78, ../scss/_site-styles.scss */
+/* line 79, ../scss/_site-styles.scss */
 .about__img {
   border-radius: 50%;
   border: 0.3em solid #ef4d75;
   width: 10em;
   height: auto;
 }
-/* line 85, ../scss/_site-styles.scss */
+/* line 86, ../scss/_site-styles.scss */
 .about__text {
   -webkit-box-flex: 6;
   -webkit-flex: 6;
@@ -2173,7 +2153,7 @@ header h1 {
   font-weight: 300;
 }
 
-/* line 92, ../scss/_site-styles.scss */
+/* line 93, ../scss/_site-styles.scss */
 blockquote {
   text-align: center;
   font-size: 1.2em;
@@ -2182,38 +2162,56 @@ blockquote {
   font-weight: 900;
   position: relative;
 }
-/* line 100, ../scss/_site-styles.scss */
+/* line 101, ../scss/_site-styles.scss */
 blockquote .fa[class*="quote"] {
   font-size: 0.6em;
   vertical-align: top;
 }
 
-/* line 107, ../scss/_site-styles.scss */
+/* line 108, ../scss/_site-styles.scss */
 a.regular-link {
   color: #ef4d75;
   margin-right: 1em;
 }
-/* line 111, ../scss/_site-styles.scss */
+/* line 112, ../scss/_site-styles.scss */
 a.regular-link:hover {
   color: #ebebeb;
 }
-/* line 115, ../scss/_site-styles.scss */
+/* line 116, ../scss/_site-styles.scss */
+a.regular-link::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: inherit;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+          transition: transform 0.3s ease-in-out;
+}
+/* line 128, ../scss/_site-styles.scss */
 a.regular-link:hover::after {
   background: #ef4d75;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
-/* line 119, ../scss/_site-styles.scss */
+/* line 133, ../scss/_site-styles.scss */
 a.regular-link--no-margin {
   margin: 0;
 }
 
-/* line 125, ../scss/_site-styles.scss */
+/* line 138, ../scss/_site-styles.scss */
 .tabs__pane:nth-of-type(n+10) {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
 }
 
-/* line 129, ../scss/_site-styles.scss */
+/* line 142, ../scss/_site-styles.scss */
 .fa-github, .fa-external-link-square {
   font-size: 1.2em;
   margin-right: 0.2em;
@@ -2221,18 +2219,18 @@ a.regular-link--no-margin {
   color: #171515;
 }
 
-/* line 136, ../scss/_site-styles.scss */
+/* line 149, ../scss/_site-styles.scss */
 .image--height-override {
   height: 30em;
   width: auto;
 }
 
-/* line 141, ../scss/_site-styles.scss */
+/* line 154, ../scss/_site-styles.scss */
 .carousel-arrow-bg-override {
   mix-blend-mode: difference;
 }
 
-/* line 145, ../scss/_site-styles.scss */
+/* line 158, ../scss/_site-styles.scss */
 footer {
   text-align: center;
   background: #373b44;

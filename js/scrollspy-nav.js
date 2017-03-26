@@ -43,6 +43,8 @@
     // read current scroll position
     var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
+    scrollPosition += scrollspyObj.nav.getBoundingClientRect().height;
+
     for (var i = 0; i < scrollspyObj.targets.length; i++) {
       var checkTarget = scrollspyObj.targets[i];
       var navItem = checkTarget.navItem;
