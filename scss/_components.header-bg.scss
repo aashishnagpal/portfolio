@@ -6,5 +6,93 @@
   overflow: hidden;
   transform: skewY(-10deg);
   transform-origin: 0;
-  background: linear-gradient(150deg, nth($color-palette, 1) 15%, nth($color-palette, 5) 70%, nth($color-palette, 7) 94%);;
+  background: linear-gradient(150deg, nth($color-palette, 1) 15%, nth($color-palette, 5) 70%, nth($color-palette, 7) 94%);
+
+  &--span {
+    position: absolute;
+    height: 50px;
+
+    @media (min-width: 670px) {
+      height: 150px;
+    }
+
+    @media (min-width: 880px) {
+      height: 165px;
+    }
+
+    &:nth-of-type(1) {
+      width: 50%;
+      left: 50%;
+      top: 50px;
+      background: darken(nth($color-palette, 1), 10%);
+
+      @media (min-width: 670px) {
+        top: 0;
+        background: nth($color-palette, 1);
+      }
+
+      @media (min-width: 880px) {
+        width: 33.33333%;
+        left: -16.66666%;
+      }
+    }
+
+    &:nth-of-type(2) {
+      width: 14%;
+      right: 0;
+      bottom: 50px;
+      background: nth($color-palette, 5);
+
+      @media (min-width: 670px) {
+        width: 16.66667%;
+        top: 300px;
+        bottom: auto;
+      }
+
+      @media (min-width: 880px) {
+        width: 33.33333%;
+        top: 0;
+        left: 16.66666%;
+        right: auto;
+        background: nth($color-palette, 3);
+      }
+    }
+
+    &:nth-of-type(3) {
+      width: 25%;
+      bottom: 0;
+      right: 0;
+      background: nth($color-palette, 7);
+
+      @media (min-width: 670px) {
+        width: 33.33333%;
+        right: auto;
+        background: nth($color-palette, 5);
+      }
+
+      @media (min-width: 880px) {
+        left: 49.99999%;
+        bottom: auto;
+        background: nth($color-palette, 2);
+      }
+    }
+
+    &:nth-of-type(4) {
+      @media (min-width: 880px) {
+        width: 33.33333%;
+        top: 350px;
+        right: -16.66666%;
+        background: lighten(nth($color-palette, 6), 10%);
+      }
+    }
+
+    &:nth-of-type(5) {
+      @media (min-width: 880px) {
+        width: 33.33333%;
+        bottom: 0;
+        background: nth($color-palette, 4);
+      }
+    }
+  }
+
 }

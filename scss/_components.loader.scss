@@ -85,7 +85,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 0.3em solid $font-highlight-color;
+      border: 0.3em solid darken($font-highlight-color, 5%);
       animation: 0.8s ease-in-out 0s alternate infinite running;
     }
 
