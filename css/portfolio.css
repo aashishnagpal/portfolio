@@ -1127,8 +1127,8 @@ ul {
   background-color: #ef4d75;
   border-radius: 5px 5px 0 0;
   margin: 0 0.7em;
-  -webkit-transition: height 2s ease-in-out;
-          transition: height 2s ease-in-out;
+  -webkit-transition: height 1s ease-in-out;
+          transition: height 1s ease-in-out;
   box-shadow: 1px 0 1px #5b616f;
   position: relative;
 }
