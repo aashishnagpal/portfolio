@@ -513,6 +513,7 @@ body {
   color: #ebebeb;
   position: relative;
   background: #40444f;
+  scroll-behavior: smooth;
 }
 
 /* line 3, ../scss/_elements.headings.scss */
@@ -893,18 +894,18 @@ ul {
 /**
  * Navigation Styles
  */
-/* line 5, ../scss/_components.navigation.scss */
+/* line 7, ../scss/_components.navigation.scss */
 .nav {
   padding: 0;
   margin: 0;
   width: 100%;
 }
-/* line 10, ../scss/_components.navigation.scss */
+/* line 12, ../scss/_components.navigation.scss */
 .nav, .nav--horizontal, .nav--vertical-left, .nav--vertical-right {
   background: transparent;
   color: #ebebeb;
 }
-/* line 15, ../scss/_components.navigation.scss */
+/* line 17, ../scss/_components.navigation.scss */
 .nav, .nav--horizontal {
   display: -webkit-box;
   display: -webkit-flex;
@@ -915,7 +916,7 @@ ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-/* line 22, ../scss/_components.navigation.scss */
+/* line 24, ../scss/_components.navigation.scss */
 .nav--vertical-left, .nav--vertical-right {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -925,14 +926,17 @@ ul {
   max-height: 100vh;
   height: auto;
 }
-/* line 30, ../scss/_components.navigation.scss */
+/* line 32, ../scss/_components.navigation.scss */
 .nav--sticky {
+  background: #40444f;
   position: fixed;
-  left: 0;
+  width: 100%;
   top: 0;
-  z-index: 9999;
+  left: 0;
+  z-index: 9989;
+  padding-top: 1.5em;
 }
-/* line 37, ../scss/_components.navigation.scss */
+/* line 42, ../scss/_components.navigation.scss */
 .nav__item {
   position: relative;
   text-align: center;
@@ -943,25 +947,25 @@ ul {
       -ms-flex: 1;
           flex: 1;
 }
-/* line 44, ../scss/_components.navigation.scss */
+/* line 49, ../scss/_components.navigation.scss */
 .nav__item:hover {
   color: #ef4d75;
-  -webkit-animation: nav__item--hover-anime 1s ease-in-out;
-          animation: nav__item--hover-anime 1s ease-in-out;
-}
-/* line 48, ../scss/_components.navigation.scss */
-.nav__item:hover::before {
-  color: #ef4d75;
-  -webkit-animation: nav__item-before--hover-anime 1s ease-in-out;
-          animation: nav__item-before--hover-anime 1s ease-in-out;
+  -webkit-animation: nav__item--hover-anime 0.6s ease-in-out;
+          animation: nav__item--hover-anime 0.6s ease-in-out;
 }
 /* line 53, ../scss/_components.navigation.scss */
+.nav__item:hover::before {
+  color: #ef4d75;
+  -webkit-animation: nav__item-before--hover-anime 0.6s ease-in-out;
+          animation: nav__item-before--hover-anime 0.6s ease-in-out;
+}
+/* line 58, ../scss/_components.navigation.scss */
 .nav__item:hover::after {
   color: #ef4d75;
-  -webkit-animation: nav__item-after--hover-anime 1s ease-in-out;
-          animation: nav__item-after--hover-anime 1s ease-in-out;
+  -webkit-animation: nav__item-after--hover-anime 0.6s ease-in-out;
+          animation: nav__item-after--hover-anime 0.6s ease-in-out;
 }
-/* line 59, ../scss/_components.navigation.scss */
+/* line 64, ../scss/_components.navigation.scss */
 .nav__item::before, .nav__item::after {
   font-family: "Source Code Pro", monospace;
   font-size: 1.15em;
@@ -970,39 +974,45 @@ ul {
   -webkit-transition: -webkit-transform 0.3s linear;
           transition: transform 0.3s linear;
 }
-/* line 67, ../scss/_components.navigation.scss */
+/* line 72, ../scss/_components.navigation.scss */
 .nav__item::before {
   content: '<';
+  left: 5%;
   left: calc(5%);
 }
-/* line 72, ../scss/_components.navigation.scss */
+/* line 78, ../scss/_components.navigation.scss */
 .nav__item::after {
   content: '>';
+  right: 5%;
   right: calc(5%);
 }
-/* line 77, ../scss/_components.navigation.scss */
+/* line 84, ../scss/_components.navigation.scss */
 .nav__item--active {
   color: #ef4d75;
 }
 
 @-webkit-keyframes nav__item-before--hover-anime {
   50% {
+    left: 49%;
     left: calc(49%);
   }
 }
 
 @keyframes nav__item-before--hover-anime {
   50% {
+    left: 49%;
     left: calc(49%);
   }
 }
 @-webkit-keyframes nav__item-after--hover-anime {
   50% {
+    right: 49%;
     right: calc(49%);
   }
 }
 @keyframes nav__item-after--hover-anime {
   50% {
+    right: 49%;
     right: calc(49%);
   }
 }
@@ -1049,10 +1059,9 @@ ul {
   -webkit-flex: 0 1 26em;
       -ms-flex: 0 1 26em;
           flex: 0 1 26em;
-  height: auto;
   border-bottom: 1px solid #e2eafa;
 }
-/* line 16, ../scss/_components.bar-graph.scss */
+/* line 15, ../scss/_components.bar-graph.scss */
 .bar-graph__heading {
   margin: 1em 0;
   font-size: 1.5em;
@@ -1063,7 +1072,7 @@ ul {
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
 }
-/* line 24, ../scss/_components.bar-graph.scss */
+/* line 23, ../scss/_components.bar-graph.scss */
 .bar-graph__legend {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1083,14 +1092,14 @@ ul {
       -ms-flex: 0 1 20%;
           flex: 0 1 20%;
 }
-/* line 31, ../scss/_components.bar-graph.scss */
+/* line 30, ../scss/_components.bar-graph.scss */
 .bar-graph__legend-value {
   padding: 0.5em 0 1.5em 0.1em;
   -webkit-flex-basis: 25%;
       -ms-flex-preferred-size: 25%;
           flex-basis: 25%;
 }
-/* line 37, ../scss/_components.bar-graph.scss */
+/* line 36, ../scss/_components.bar-graph.scss */
 .bar-graph__bars {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1108,8 +1117,10 @@ ul {
       -ms-flex-preferred-size: 79%;
           flex-basis: 79%;
   margin-left: 1%;
+  height: 13em;
+  min-height: 13em;
 }
-/* line 45, ../scss/_components.bar-graph.scss */
+/* line 46, ../scss/_components.bar-graph.scss */
 .bar-graph__bar {
   width: 2em;
   height: 0;
@@ -1121,7 +1132,7 @@ ul {
   box-shadow: 1px 0 1px #5b616f;
   position: relative;
 }
-/* line 55, ../scss/_components.bar-graph.scss */
+/* line 56, ../scss/_components.bar-graph.scss */
 .bar-graph__bar-title {
   position: absolute;
   bottom: -2.5em;
@@ -1326,7 +1337,7 @@ ul {
 
 /* line 1, ../scss/_components.tabs.scss */
 .tabs {
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0.5em 1em;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1584,27 +1595,27 @@ ul {
           transform: translateY(0);
 }
 /* line 94, ../scss/_components.carousel.scss */
-.c-carousel--slider-type .c-carousel__slide--is-selected.--slide-next {
+.c-carousel--slider-type .c-carousel__slide--is-selected.slide--slide-next {
   -webkit-animation: c-carousel--slideFromRight 1s ease;
           animation: c-carousel--slideFromRight 1s ease;
 }
-/* line 98, ../scss/_components.carousel.scss */
-.c-carousel--slider-type .c-carousel__slide--is-selected.--slide-prev {
+/* line 97, ../scss/_components.carousel.scss */
+.c-carousel--slider-type .c-carousel__slide--is-selected.slide--slide-prev {
   -webkit-animation: c-carousel--slideFromLeft 1s ease;
           animation: c-carousel--slideFromLeft 1s ease;
 }
-/* line 102, ../scss/_components.carousel.scss */
-.c-carousel__slide.--slide-out-left {
+/* line 101, ../scss/_components.carousel.scss */
+.c-carousel__slide.slide--slide-out-left {
   -webkit-animation: c-carousel--slideToLeft 1s ease;
           animation: c-carousel--slideToLeft 1s ease;
 }
-/* line 105, ../scss/_components.carousel.scss */
-.c-carousel__slide.--slide-out-right {
+/* line 104, ../scss/_components.carousel.scss */
+.c-carousel__slide.slide--slide-out-right {
   -webkit-animation: c-carousel--slideToRight 1s ease;
           animation: c-carousel--slideToRight 1s ease;
 }
 
-/* line 110, ../scss/_components.carousel.scss */
+/* line 109, ../scss/_components.carousel.scss */
 .c-carousel__slide--multi-image-container {
   width: 100%;
   display: -webkit-box;
@@ -1617,13 +1628,17 @@ ul {
           align-items: center;
 }
 
-/* line 120, ../scss/_components.carousel.scss */
+/* line 119, ../scss/_components.carousel.scss */
 .c-carousel__arrow-nav {
   position: absolute;
   z-index: 10;
   color: #e2eafa;
   text-decoration: none;
   border: none;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   opacity: 0.5;
   padding: 0;
   -webkit-transition: all 0.25s ease;
@@ -1631,22 +1646,22 @@ ul {
   font-size: 1.2em;
   mix-blend-mode: difference;
 }
-/* line 132, ../scss/_components.carousel.scss */
+/* line 133, ../scss/_components.carousel.scss */
 .c-carousel__arrow-nav:hover {
   opacity: 1;
 }
-/* line 135, ../scss/_components.carousel.scss */
+/* line 136, ../scss/_components.carousel.scss */
 .c-carousel__arrow-nav--right {
   right: 0;
   margin-right: 1em;
 }
-/* line 140, ../scss/_components.carousel.scss */
+/* line 141, ../scss/_components.carousel.scss */
 .c-carousel__arrow-nav--left {
   margin-left: 1em;
   left: 0;
 }
 
-/* line 146, ../scss/_components.carousel.scss */
+/* line 147, ../scss/_components.carousel.scss */
 .c-carousel__thumb-nav {
   list-style-type: none;
   display: -webkit-box;
@@ -1664,7 +1679,7 @@ ul {
   padding: 0;
 }
 
-/* line 155, ../scss/_components.carousel.scss */
+/* line 156, ../scss/_components.carousel.scss */
 .c-carousel__thumb-nav-item {
   padding: 0 0.5em;
   cursor: pointer;
@@ -1683,20 +1698,20 @@ ul {
       -ms-flex-align: center;
           align-items: center;
 }
-/* line 162, ../scss/_components.carousel.scss */
+/* line 163, ../scss/_components.carousel.scss */
 .c-carousel__thumb-nav-item:hover {
   -webkit-transform: translateY(-10%);
       -ms-transform: translateY(-10%);
           transform: translateY(-10%);
 }
-/* line 165, ../scss/_components.carousel.scss */
+/* line 166, ../scss/_components.carousel.scss */
 .c-carousel__thumb-nav-item--is-active {
   -webkit-transform: translateY(-10%);
       -ms-transform: translateY(-10%);
           transform: translateY(-10%);
 }
 
-/* line 170, ../scss/_components.carousel.scss */
+/* line 171, ../scss/_components.carousel.scss */
 .c-carousel__thumb-image {
   width: 100%;
   height: auto;
@@ -1831,11 +1846,13 @@ ul {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   /* this applies/preserves the perspective evenly over children */
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
   -webkit-transition: -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 3s cubic-bezier(0.19, 1, 0.22, 1);
           transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* line 21, ../scss/_components.business-card.scss */
+/* line 22, ../scss/_components.business-card.scss */
 label[for="card-flip"], #flip-card-icon {
   font-size: 1.7em;
   display: inline-block;
@@ -1846,33 +1863,33 @@ label[for="card-flip"], #flip-card-icon {
   z-index: 1;
 }
 
-/* line 31, ../scss/_components.business-card.scss */
+/* line 32, ../scss/_components.business-card.scss */
 label[for="card-flip"] {
   width: 1.5em;
   height: 1.5em;
 }
 
 /* Hover effect in 3D */
-/* line 38, ../scss/_components.business-card.scss */
+/* line 39, ../scss/_components.business-card.scss */
 label[for="card-flip"]:hover + .card {
   -webkit-transform: rotateX(20deg);
           transform: rotateX(20deg);
   box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
 }
-/* line 42, ../scss/_components.business-card.scss */
+/* line 43, ../scss/_components.business-card.scss */
 label[for="card-flip"]:hover + .card > #flip-card-icon {
   color: #ef4d75;
 }
 
 /* Flip effect using checkbox */
-/* line 48, ../scss/_components.business-card.scss */
+/* line 49, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
 /* reverse hover effect for flipped card */
-/* line 53, ../scss/_components.business-card.scss */
+/* line 54, ../scss/_components.business-card.scss */
 #card-flip:checked + label[for="card-flip"]:hover + .card {
   -webkit-transform: rotateX(160deg);
           transform: rotateX(160deg);
@@ -1883,7 +1900,7 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
 /* also transforms in 3D along with the rest of the card */
 /* Note to self: do not use z-index as it */
 /* does not give the desired result and also meddles with backface-visibility */
-/* line 62, ../scss/_components.business-card.scss */
+/* line 63, ../scss/_components.business-card.scss */
 #flip-card-icon {
   margin: 0.2em 0.3em;
   -webkit-transform: translate3d(0, 0, 0.1em);
@@ -1893,14 +1910,14 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
 }
 
 /* another necessary declaration for translating the same flipping icon to the backface */
-/* line 70, ../scss/_components.business-card.scss */
+/* line 71, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card > #flip-card-icon {
   -webkit-transform: translate3d(0, 10.4em, -0.1em);
           transform: translate3d(0, 10.4em, -0.1em);
 }
 
 /* set position and backface-visibility of the card's front and back faces */
-/* line 75, ../scss/_components.business-card.scss */
+/* line 76, ../scss/_components.business-card.scss */
 .card > [class|="card"] {
   margin: 0;
   position: absolute;
@@ -1910,13 +1927,15 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
   height: 100%;
 }
 
-/* line 83, ../scss/_components.business-card.scss */
+/* line 84, ../scss/_components.business-card.scss */
 .card-front {
   background: url(../images/bg2.png);
   padding: 1.5em;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
 }
 
-/* line 88, ../scss/_components.business-card.scss */
+/* line 90, ../scss/_components.business-card.scss */
 .card-back {
   background: url(../images/card-back.jpg);
   background-size: 100% 100%;
@@ -1925,27 +1944,27 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
 }
 
 /* Following declarations style the content within the card */
-/* line 96, ../scss/_components.business-card.scss */
+/* line 98, ../scss/_components.business-card.scss */
 .name {
   font-size: 3em;
   font-weight: 300;
   margin: 0;
 }
 
-/* line 102, ../scss/_components.business-card.scss */
+/* line 104, ../scss/_components.business-card.scss */
 .title {
   font-size: 1em;
   font-weight: 300;
   margin: 0 0 2em;
 }
 
-/* line 108, ../scss/_components.business-card.scss */
+/* line 110, ../scss/_components.business-card.scss */
 .message {
   margin: 0 0 0.5em;
   font-weight: 300;
 }
 
-/* line 113, ../scss/_components.business-card.scss */
+/* line 115, ../scss/_components.business-card.scss */
 .links {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1957,20 +1976,20 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           justify-content: space-between;
 }
 
-/* line 118, ../scss/_components.business-card.scss */
+/* line 120, ../scss/_components.business-card.scss */
 .regular-link {
   color: #ef4d75;
 }
-/* line 121, ../scss/_components.business-card.scss */
+/* line 123, ../scss/_components.business-card.scss */
 .regular-link:hover {
   color: #ebebeb;
 }
-/* line 125, ../scss/_components.business-card.scss */
+/* line 127, ../scss/_components.business-card.scss */
 .regular-link:hover::after {
   background: #ef4d75;
 }
 
-/* line 130, ../scss/_components.business-card.scss */
+/* line 132, ../scss/_components.business-card.scss */
 .social {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1983,7 +2002,7 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           align-items: baseline;
 }
 
-/* line 136, ../scss/_components.business-card.scss */
+/* line 138, ../scss/_components.business-card.scss */
 .encyclopedia {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -1995,32 +2014,32 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           align-items: flex-end;
 }
 
-/* line 142, ../scss/_components.business-card.scss */
+/* line 144, ../scss/_components.business-card.scss */
 .encyclopedia a:hover::after {
   background: #9c5fe6;
 }
 
-/* line 147, ../scss/_components.business-card.scss */
+/* line 149, ../scss/_components.business-card.scss */
 .encyclopedia div {
   display: inline-block;
 }
 
-/* line 151, ../scss/_components.business-card.scss */
+/* line 153, ../scss/_components.business-card.scss */
 .encyclopedia div p {
   margin: 0.1em 0.5em;
 }
 
-/* line 155, ../scss/_components.business-card.scss */
+/* line 157, ../scss/_components.business-card.scss */
 .encyclopedia img {
   vertical-align: bottom;
 }
 
-/* line 159, ../scss/_components.business-card.scss */
+/* line 161, ../scss/_components.business-card.scss */
 .encyclopedia-label {
   color: #9c5fe6;
 }
 
-/* line 163, ../scss/_components.business-card.scss */
+/* line 165, ../scss/_components.business-card.scss */
 .other-social-media {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -2029,12 +2048,12 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
   text-align: right;
 }
 
-/* line 168, ../scss/_components.business-card.scss */
+/* line 170, ../scss/_components.business-card.scss */
 .other-social-media a {
   margin-left: 0.5em;
 }
 
-/* line 172, ../scss/_components.business-card.scss */
+/* line 174, ../scss/_components.business-card.scss */
 .other-social-media img {
   vertical-align: bottom;
 }
@@ -2048,9 +2067,10 @@ nav {
 section {
   position: relative;
   padding: 4em 0;
+  margin-bottom: 3em !important;
 }
 
-/* line 10, ../scss/_site-styles.scss */
+/* line 11, ../scss/_site-styles.scss */
 header h1 {
   position: relative;
   color: #ef4d75;
@@ -2058,7 +2078,7 @@ header h1 {
   font-size: 2.5em;
 }
 
-/* line 17, ../scss/_site-styles.scss */
+/* line 18, ../scss/_site-styles.scss */
 .nav__search {
   font-size: 1.5em;
   position: relative;
@@ -2067,7 +2087,7 @@ header h1 {
       -ms-flex: 1.5;
           flex: 1.5;
 }
-/* line 22, ../scss/_site-styles.scss */
+/* line 23, ../scss/_site-styles.scss */
 .nav__search-input {
   background: transparent;
   outline: none;
@@ -2078,18 +2098,18 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 31, ../scss/_site-styles.scss */
+/* line 32, ../scss/_site-styles.scss */
 .nav__search-input:focus {
   color: inherit;
   border-bottom-color: #ef4d75;
 }
-/* line 35, ../scss/_site-styles.scss */
+/* line 36, ../scss/_site-styles.scss */
 .nav__search-input:focus + .nav__search-label {
   font-size: 0.65em;
   top: -1.5em;
   color: #ef4d75;
 }
-/* line 43, ../scss/_site-styles.scss */
+/* line 44, ../scss/_site-styles.scss */
 .nav__search-label {
   position: absolute;
   top: 0;
@@ -2097,7 +2117,7 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 50, ../scss/_site-styles.scss */
+/* line 51, ../scss/_site-styles.scss */
 .nav__search-button {
   width: 10%;
   font-size: 0.9em;
@@ -2107,16 +2127,16 @@ header h1 {
   margin: 0;
   color: inherit;
 }
-/* line 59, ../scss/_site-styles.scss */
+/* line 60, ../scss/_site-styles.scss */
 .nav__search-button:hover {
   color: #ef4d75;
 }
-/* line 63, ../scss/_site-styles.scss */
+/* line 64, ../scss/_site-styles.scss */
 .nav__search-button:focus {
   outline: none;
 }
 
-/* line 69, ../scss/_site-styles.scss */
+/* line 70, ../scss/_site-styles.scss */
 .about {
   padding: 0 2em;
   display: -webkit-box;
@@ -2128,7 +2148,7 @@ header h1 {
       -ms-flex-align: center;
           align-items: center;
 }
-/* line 74, ../scss/_site-styles.scss */
+/* line 75, ../scss/_site-styles.scss */
 .about__img-container {
   margin-right: 1em;
   -webkit-box-flex: 1;
@@ -2136,14 +2156,14 @@ header h1 {
       -ms-flex: 1;
           flex: 1;
 }
-/* line 79, ../scss/_site-styles.scss */
+/* line 80, ../scss/_site-styles.scss */
 .about__img {
   border-radius: 50%;
   border: 0.3em solid #ef4d75;
   width: 10em;
   height: auto;
 }
-/* line 86, ../scss/_site-styles.scss */
+/* line 87, ../scss/_site-styles.scss */
 .about__text {
   -webkit-box-flex: 6;
   -webkit-flex: 6;
@@ -2153,7 +2173,7 @@ header h1 {
   font-weight: 300;
 }
 
-/* line 93, ../scss/_site-styles.scss */
+/* line 94, ../scss/_site-styles.scss */
 blockquote {
   text-align: center;
   font-size: 1.2em;
@@ -2162,22 +2182,22 @@ blockquote {
   font-weight: 900;
   position: relative;
 }
-/* line 101, ../scss/_site-styles.scss */
+/* line 102, ../scss/_site-styles.scss */
 blockquote .fa[class*="quote"] {
   font-size: 0.6em;
   vertical-align: top;
 }
 
-/* line 108, ../scss/_site-styles.scss */
+/* line 109, ../scss/_site-styles.scss */
 a.regular-link {
   color: #ef4d75;
   margin-right: 1em;
 }
-/* line 112, ../scss/_site-styles.scss */
+/* line 113, ../scss/_site-styles.scss */
 a.regular-link:hover {
   color: #ebebeb;
 }
-/* line 116, ../scss/_site-styles.scss */
+/* line 117, ../scss/_site-styles.scss */
 a.regular-link::after {
   position: absolute;
   left: 0;
@@ -2192,26 +2212,26 @@ a.regular-link::after {
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
           transition: transform 0.3s ease-in-out;
 }
-/* line 128, ../scss/_site-styles.scss */
+/* line 129, ../scss/_site-styles.scss */
 a.regular-link:hover::after {
   background: #ef4d75;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
 }
-/* line 133, ../scss/_site-styles.scss */
+/* line 134, ../scss/_site-styles.scss */
 a.regular-link--no-margin {
   margin: 0;
 }
 
-/* line 138, ../scss/_site-styles.scss */
+/* line 139, ../scss/_site-styles.scss */
 .tabs__pane:nth-of-type(n+10) {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
 }
 
-/* line 142, ../scss/_site-styles.scss */
+/* line 143, ../scss/_site-styles.scss */
 .fa-github, .fa-external-link-square {
   font-size: 1.2em;
   margin-right: 0.2em;
@@ -2219,18 +2239,18 @@ a.regular-link--no-margin {
   color: #171515;
 }
 
-/* line 149, ../scss/_site-styles.scss */
+/* line 150, ../scss/_site-styles.scss */
 .image--height-override {
   height: 30em;
   width: auto;
 }
 
-/* line 154, ../scss/_site-styles.scss */
+/* line 155, ../scss/_site-styles.scss */
 .carousel-arrow-bg-override {
   mix-blend-mode: difference;
 }
 
-/* line 158, ../scss/_site-styles.scss */
+/* line 159, ../scss/_site-styles.scss */
 footer {
   text-align: center;
   background: #373b44;

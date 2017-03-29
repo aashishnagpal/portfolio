@@ -10,7 +10,6 @@
     flex-wrap: wrap;
     margin: 2.5em 1em;
     flex: 0 1 26em;
-    height: auto;
     border-bottom: 1px solid $generic-fg-color;
 
     &__heading {
@@ -40,6 +39,8 @@
       justify-content: center;
       flex-basis: 79%;
       margin-left: 1%;
+      height: 13em;
+      min-height: 13em;
     }
 
     &__bar {

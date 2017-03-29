@@ -7,7 +7,7 @@
   var fetchScrollToTargets = function () {
     // Fetch navigation list and the anchor tags within it to form the scrollspy checkpoints
     var nav = document.querySelector('[data-scrollspy]');
-    var links = nav.querySelectorAll('a[href]:not([href="#"]');
+    var links = nav.querySelectorAll('a[href]:not([href="#"])');
     var targets = [], testTargets = {};
     var listItems = [];
     // Create the target checkpoints array.
@@ -23,7 +23,7 @@
       listItems.push(element.parentNode);
       // Add a click event listener on each nav__item
       element.parentNode.addEventListener('click', function () {
-        listItems.forEach(function(item) {
+        listItems.forEach(function (item) {
           if (item.classList.contains('nav__item--active')) {
             item.classList.remove('nav__item--active');
           }

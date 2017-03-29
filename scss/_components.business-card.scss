@@ -15,6 +15,7 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d; /* this applies/preserves the perspective evenly over children */
+  transform: rotateX(0deg);
   transition: transform 3s cubic-bezier(0.19, 1.00, 0.22, 1.00), box-shadow 3s cubic-bezier(0.19, 1.00, 0.22, 1.00);
 }
 
@@ -83,6 +84,7 @@ label[for="card-flip"]:hover + .card {
 .card-front {
   background: url(../images/bg2.png);
   padding: 1.5em;
+  transform: rotateX(0deg);
 }
 
 .card-back {

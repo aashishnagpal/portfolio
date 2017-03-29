@@ -91,18 +91,17 @@
     z-index: 10;
     opacity: 1;
     transform: translateY(0);
-    &.--slide-next {
+    &.slide--slide-next {
       animation: c-carousel--slideFromRight 1s ease;
     }
-
-    &.--slide-prev {
+    &.slide--slide-prev {
       animation: c-carousel--slideFromLeft 1s ease;
     }
   }
-  &.--slide-out-left {
+  &.slide--slide-out-left {
     animation: c-carousel--slideToLeft 1s ease;
   }
-  &.--slide-out-right {
+  &.slide--slide-out-right {
     animation: c-carousel--slideToRight 1s ease;
   }
 }
@@ -123,6 +122,8 @@
   color: $generic-fg-color;
   text-decoration: none;
   border: none;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 0.5;
   padding: 0;
   transition: all 0.25s ease;

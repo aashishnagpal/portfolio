@@ -9,16 +9,10 @@
   });
 
   window.addEventListener('scroll', function () {
-    /*position: fixed;
-     width: 100%;
-     top: 0;
-     z-index: 9990;*/
-
     if (document.querySelector('#about').getBoundingClientRect().top < 0) {
-      document.querySelector('nav').setAttribute('style', 'background: #40444f; position: fixed; width: 100%; top:' +
-          ' 0; left: 0; z-index: 9990; padding-top: 0.5em;');
+      document.querySelector('nav').classList.add('nav--sticky');
     } else {
-      document.querySelector('nav').removeAttribute('style');
+      document.querySelector('nav').classList.remove('nav--sticky');
     }
   });
 })();

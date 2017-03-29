@@ -1,6 +1,8 @@
 /**
  * Navigation Styles
  */
+$nav__item--animation-timing: 0.6s;
+$nav__item--animation-easing: ease-in-out;
 
 .nav {
   padding: 0;
@@ -28,10 +30,13 @@
   }
 
   &--sticky {
+    background: #40444f;
     position: fixed;
-    left: 0;
+    width: 100%;
     top: 0;
-    z-index: 9999;
+    left: 0;
+    z-index: $infinity - 10;
+    padding-top: 1.5em;
   }
 
   &__item {
@@ -43,16 +48,16 @@
 
     &:hover {
       color: $font-highlight-color;
-      animation: nav__item--hover-anime 1s ease-in-out;
+      animation: nav__item--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
 
       &::before {
         color: $font-highlight-color;
-        animation: nav__item-before--hover-anime 1s ease-in-out;
+        animation: nav__item-before--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
       }
 
       &::after {
         color: $font-highlight-color;
-        animation: nav__item-after--hover-anime 1s ease-in-out;
+        animation: nav__item-after--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
       }
     }
 
@@ -66,11 +71,13 @@
 
     &::before {
       content: '<';
+      left: 5%;
       left: calc(5%);
     }
 
     &::after {
       content: '>';
+      right: 5%;
       right: calc(5%);
     }
 
@@ -82,12 +89,14 @@
 
 @keyframes nav__item-before--hover-anime {
   50% {
+    left: 49%;
     left: calc(49%);
   }
 }
 
 @keyframes nav__item-after--hover-anime {
   50% {
+    right: 49%;
     right: calc(49%);
   }
 }
