@@ -18,7 +18,7 @@
 
   var callAnimateOnGraphs = function () {
     Array.prototype.forEach.call(graphs, function (graph) {
-      if ((graph.getBoundingClientRect().top) <= clientHeight) {
+      if ((graph.getBoundingClientRect().bottom) <= clientHeight) {
         animateGraphLengths.call(graph);
       }
     });
