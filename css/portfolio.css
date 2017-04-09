@@ -515,6 +515,18 @@ body {
   background: #40444f;
   scroll-behavior: smooth;
 }
+@media (max-width: 750px) {
+  /* line 1, ../scss/_generic.global.scss */
+  body {
+    font-size: 14px;
+  }
+}
+@media (max-width: 550px) {
+  /* line 1, ../scss/_generic.global.scss */
+  body {
+    font-size: 12px;
+  }
+}
 
 /* line 3, ../scss/_elements.headings.scss */
 h1,
@@ -688,8 +700,8 @@ ul {
   width: 100%;
   height: 100%;
   border: 0.3em solid #ed3663;
-  -webkit-animation: 1.2s linear 0s infinite alternate running;
-          animation: 1.2s linear 0s infinite alternate running;
+  -webkit-animation: 2s linear 0s infinite forwards running;
+          animation: 2s linear 0s infinite forwards running;
 }
 /* line 92, ../scss/_components.loader.scss */
 .loader__load-box-3d::before {
@@ -899,32 +911,33 @@ ul {
   padding: 0;
   margin: 0;
   width: 100%;
-}
-/* line 12, ../scss/_components.navigation.scss */
-.nav, .nav--horizontal, .nav--vertical-left, .nav--vertical-right {
   background: transparent;
   color: #ebebeb;
 }
-/* line 17, ../scss/_components.navigation.scss */
-.nav, .nav--horizontal {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-/* line 24, ../scss/_components.navigation.scss */
-.nav--vertical-left, .nav--vertical-right {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-height: 100vh;
-  height: auto;
+@media (max-width: 700px) {
+  /* line 7, ../scss/_components.navigation.scss */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 90vw;
+    padding-top: 5em;
+    padding-left: 2.5em;
+    -webkit-transform: translate(101%);
+        -ms-transform: translate(101%);
+            transform: translate(101%);
+    -webkit-transition: -webkit-transform 0.7s ease-in-out;
+            transition: transform 0.7s ease-in-out;
+    background: #40444f;
+    z-index: 9989;
+  }
+  /* line 27, ../scss/_components.navigation.scss */
+  .nav--is-open {
+    -webkit-transform: translate(0);
+        -ms-transform: translate(0);
+            transform: translate(0);
+  }
 }
 /* line 32, ../scss/_components.navigation.scss */
 .nav--sticky {
@@ -936,37 +949,30 @@ ul {
   z-index: 9989;
   padding-top: 1.5em;
 }
-/* line 42, ../scss/_components.navigation.scss */
+@media (max-width: 700px) {
+  /* line 32, ../scss/_components.navigation.scss */
+  .nav--sticky {
+    padding-top: 0;
+  }
+}
+/* line 46, ../scss/_components.navigation.scss */
 .nav__item {
   position: relative;
   text-align: center;
   font-size: 1.5em;
-  cursor: pointer;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
-/* line 49, ../scss/_components.navigation.scss */
-.nav__item:hover {
+@media (max-width: 700px) {
+  /* line 46, ../scss/_components.navigation.scss */
+  .nav__item {
+    text-align: left;
+  }
+}
+/* line 55, ../scss/_components.navigation.scss */
+.nav__item--active {
   color: #ef4d75;
-  -webkit-animation: nav__item--hover-anime 0.6s ease-in-out;
-          animation: nav__item--hover-anime 0.6s ease-in-out;
 }
-/* line 53, ../scss/_components.navigation.scss */
-.nav__item:hover::before {
-  color: #ef4d75;
-  -webkit-animation: nav__item-before--hover-anime 0.6s ease-in-out;
-          animation: nav__item-before--hover-anime 0.6s ease-in-out;
-}
-/* line 58, ../scss/_components.navigation.scss */
-.nav__item:hover::after {
-  color: #ef4d75;
-  -webkit-animation: nav__item-after--hover-anime 0.6s ease-in-out;
-          animation: nav__item-after--hover-anime 0.6s ease-in-out;
-}
-/* line 64, ../scss/_components.navigation.scss */
-.nav__item::before, .nav__item::after {
+/* line 62, ../scss/_components.navigation.scss */
+.nav__link::before, .nav__link::after {
   font-family: "Source Code Pro", monospace;
   font-size: 1.15em;
   position: absolute;
@@ -974,45 +980,66 @@ ul {
   -webkit-transition: -webkit-transform 0.3s linear;
           transition: transform 0.3s linear;
 }
-/* line 72, ../scss/_components.navigation.scss */
-.nav__item::before {
-  content: '<';
-  left: 5%;
-  left: calc(5%);
+@media (max-width: 700px) {
+  /* line 62, ../scss/_components.navigation.scss */
+  .nav__link::before, .nav__link::after {
+    display: none;
+  }
 }
-/* line 78, ../scss/_components.navigation.scss */
-.nav__item::after {
+/* line 74, ../scss/_components.navigation.scss */
+.nav__link::before {
+  content: '<';
+  left: -0.75em;
+}
+/* line 79, ../scss/_components.navigation.scss */
+.nav__link::after {
   content: '>';
-  right: 5%;
-  right: calc(5%);
+  right: -0.75em;
 }
 /* line 84, ../scss/_components.navigation.scss */
-.nav__item--active {
+.nav__link:hover {
   color: #ef4d75;
+  -webkit-animation: nav__item--hover-anime 0.6s ease-in-out;
+          animation: nav__item--hover-anime 0.6s ease-in-out;
+}
+@media (max-width: 700px) {
+  /* line 84, ../scss/_components.navigation.scss */
+  .nav__link:hover {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+/* line 92, ../scss/_components.navigation.scss */
+.nav__link:hover::before {
+  color: #ef4d75;
+  -webkit-animation: nav__item-before--hover-anime 0.6s ease-in-out;
+          animation: nav__item-before--hover-anime 0.6s ease-in-out;
+}
+/* line 97, ../scss/_components.navigation.scss */
+.nav__link:hover::after {
+  color: #ef4d75;
+  -webkit-animation: nav__item-after--hover-anime 0.6s ease-in-out;
+          animation: nav__item-after--hover-anime 0.6s ease-in-out;
 }
 
 @-webkit-keyframes nav__item-before--hover-anime {
   50% {
-    left: 49%;
     left: calc(49%);
   }
 }
 
 @keyframes nav__item-before--hover-anime {
   50% {
-    left: 49%;
     left: calc(49%);
   }
 }
 @-webkit-keyframes nav__item-after--hover-anime {
   50% {
-    right: 49%;
     right: calc(49%);
   }
 }
 @keyframes nav__item-after--hover-anime {
   50% {
-    right: 49%;
     right: calc(49%);
   }
 }
@@ -2058,6 +2085,164 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
   vertical-align: bottom;
 }
 
+/* ==========================================================================
+   Modal component styles
+   ========================================================================== */
+/* Modal styles
+   ========================================================================== */
+/* line 16, ../scss/_components.modals.scss */
+.c-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s, opacity 0.3s;
+          transition: visibility 0s, opacity 0.3s;
+}
+
+/* line 28, ../scss/_components.modals.scss */
+.c-modal-overlay--gray {
+  background-color: #e2eafa;
+  opacity: 0.6;
+}
+
+/* line 39, ../scss/_components.modals.scss */
+.c-modal, .c-modal--basic {
+  z-index: 10000;
+  background-color: #ef4d75;
+  font-size: 1em;
+  border-radius: 3px;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+  width: 50%;
+  max-width: 25em;
+}
+
+/* line 55, ../scss/_components.modals.scss */
+.c-modal__content {
+  width: 100%;
+}
+/* line 59, ../scss/_components.modals.scss */
+.c-modal__header {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  text-align: center;
+  background-color: #c4123e;
+  color: #ebebeb;
+  border-radius: 3px 3px 0 0;
+}
+/* line 70, ../scss/_components.modals.scss */
+.c-modal__body {
+  margin: 0;
+  padding: 2em 3em;
+  color: #ebebeb;
+  line-height: 1.5em;
+}
+/* line 77, ../scss/_components.modals.scss */
+.c-modal__footer {
+  width: 100%;
+  padding: 1em 1.5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/* line 85, ../scss/_components.modals.scss */
+.c-modal__close {
+  font-size: 1.1em;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+  background-color: #eb1e51;
+  color: #ebebeb;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s;
+          transition: background-color 0.2s;
+}
+/* line 95, ../scss/_components.modals.scss */
+.c-modal__close:hover {
+  background-color: #c4123e;
+}
+
+/* line 103, ../scss/_components.modals.scss */
+.c-modal--basic {
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  -webkit-transform: scale(0) rotate(360deg);
+      -ms-transform: scale(0) rotate(360deg);
+          transform: scale(0) rotate(360deg);
+}
+
+/* line 170, ../scss/_components.modals.scss */
+.modal-component input:checked + [class^='c-modal-overlay'] {
+  visibility: visible;
+  opacity: 0.6;
+}
+
+/* line 181, ../scss/_components.modals.scss */
+.c-modal-transition--0 {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: scale(1) rotate(0deg);
+      -ms-transform: scale(1) rotate(0deg);
+          transform: scale(1) rotate(0deg);
+}
+
+/* line 187, ../scss/_components.modals.scss */
+.c-modal-transition--1 {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+/* line 193, ../scss/_components.modals.scss */
+.c-modal-transition--2 {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+/* line 199, ../scss/_components.modals.scss */
+.c-modal-transition--3 {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Modal buttons that trigger modals
+   ========================================================================== */
+/* line 210, ../scss/_components.modals.scss */
+.modal-component input {
+  display: none;
+}
+
 /* line 1, ../scss/_site-styles.scss */
 nav {
   position: relative;
@@ -2077,8 +2262,104 @@ header h1 {
   margin: 0.2em 0 !important;
   font-size: 2.5em;
 }
+@media (max-width: 750px) {
+  /* line 11, ../scss/_site-styles.scss */
+  header h1 {
+    font-size: 3em;
+  }
+}
 
-/* line 18, ../scss/_site-styles.scss */
+/* line 22, ../scss/_site-styles.scss */
+.off-canvas-menu-btn {
+  background: #40444f;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  right: 1em;
+  margin-top: 0.5em;
+  display: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 9990;
+}
+@media (max-width: 700px) {
+  /* line 22, ../scss/_site-styles.scss */
+  .off-canvas-menu-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+/* line 41, ../scss/_site-styles.scss */
+.icon {
+  position: relative;
+}
+/* line 44, ../scss/_site-styles.scss */
+.icon, .icon::before, .icon::after {
+  -webkit-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+}
+/* line 48, ../scss/_site-styles.scss */
+.icon.menu {
+  width: 2.5em;
+  height: 0.2em;
+  background-color: currentColor;
+}
+/* line 53, ../scss/_site-styles.scss */
+.icon.menu::before, .icon.menu::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: currentColor;
+}
+/* line 61, ../scss/_site-styles.scss */
+.icon.menu::before {
+  top: -0.65em;
+  height: 0.25em;
+}
+/* line 66, ../scss/_site-styles.scss */
+.icon.menu::after {
+  top: 0.6em;
+  height: 0.25em;
+}
+/* line 72, ../scss/_site-styles.scss */
+.icon.close {
+  width: 3em;
+}
+/* line 75, ../scss/_site-styles.scss */
+.icon.close::before, .icon.close::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 0.2em;
+  background-color: currentColor;
+}
+/* line 84, ../scss/_site-styles.scss */
+.icon.close::before {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+/* line 88, ../scss/_site-styles.scss */
+.icon.close::after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/* line 94, ../scss/_site-styles.scss */
 .nav__search {
   font-size: 1.5em;
   position: relative;
@@ -2087,7 +2368,7 @@ header h1 {
       -ms-flex: 1.5;
           flex: 1.5;
 }
-/* line 23, ../scss/_site-styles.scss */
+/* line 99, ../scss/_site-styles.scss */
 .nav__search-input {
   background: transparent;
   outline: none;
@@ -2098,18 +2379,18 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 32, ../scss/_site-styles.scss */
+/* line 108, ../scss/_site-styles.scss */
 .nav__search-input:focus {
   color: inherit;
   border-bottom-color: #ef4d75;
 }
-/* line 36, ../scss/_site-styles.scss */
+/* line 112, ../scss/_site-styles.scss */
 .nav__search-input:focus + .nav__search-label {
   font-size: 0.65em;
   top: -1.5em;
   color: #ef4d75;
 }
-/* line 44, ../scss/_site-styles.scss */
+/* line 120, ../scss/_site-styles.scss */
 .nav__search-label {
   position: absolute;
   top: 0;
@@ -2117,7 +2398,7 @@ header h1 {
   -webkit-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
 }
-/* line 51, ../scss/_site-styles.scss */
+/* line 127, ../scss/_site-styles.scss */
 .nav__search-button {
   width: 10%;
   font-size: 0.9em;
@@ -2127,16 +2408,16 @@ header h1 {
   margin: 0;
   color: inherit;
 }
-/* line 60, ../scss/_site-styles.scss */
+/* line 136, ../scss/_site-styles.scss */
 .nav__search-button:hover {
   color: #ef4d75;
 }
-/* line 64, ../scss/_site-styles.scss */
+/* line 140, ../scss/_site-styles.scss */
 .nav__search-button:focus {
   outline: none;
 }
 
-/* line 70, ../scss/_site-styles.scss */
+/* line 146, ../scss/_site-styles.scss */
 .about {
   padding: 0 2em;
   display: -webkit-box;
@@ -2148,7 +2429,7 @@ header h1 {
       -ms-flex-align: center;
           align-items: center;
 }
-/* line 75, ../scss/_site-styles.scss */
+/* line 151, ../scss/_site-styles.scss */
 .about__img-container {
   margin-right: 1em;
   -webkit-box-flex: 1;
@@ -2156,14 +2437,14 @@ header h1 {
       -ms-flex: 1;
           flex: 1;
 }
-/* line 80, ../scss/_site-styles.scss */
+/* line 156, ../scss/_site-styles.scss */
 .about__img {
   border-radius: 50%;
   border: 0.3em solid #ef4d75;
   width: 10em;
   height: auto;
 }
-/* line 87, ../scss/_site-styles.scss */
+/* line 163, ../scss/_site-styles.scss */
 .about__text {
   -webkit-box-flex: 6;
   -webkit-flex: 6;
@@ -2173,7 +2454,7 @@ header h1 {
   font-weight: 300;
 }
 
-/* line 94, ../scss/_site-styles.scss */
+/* line 170, ../scss/_site-styles.scss */
 blockquote {
   text-align: center;
   font-size: 1.2em;
@@ -2182,22 +2463,22 @@ blockquote {
   font-weight: 900;
   position: relative;
 }
-/* line 102, ../scss/_site-styles.scss */
+/* line 178, ../scss/_site-styles.scss */
 blockquote .fa[class*="quote"] {
   font-size: 0.6em;
   vertical-align: top;
 }
 
-/* line 109, ../scss/_site-styles.scss */
+/* line 185, ../scss/_site-styles.scss */
 a.regular-link {
   color: #ef4d75;
   margin-right: 1em;
 }
-/* line 113, ../scss/_site-styles.scss */
+/* line 189, ../scss/_site-styles.scss */
 a.regular-link:hover {
   color: #ebebeb;
 }
-/* line 117, ../scss/_site-styles.scss */
+/* line 193, ../scss/_site-styles.scss */
 a.regular-link::after {
   position: absolute;
   left: 0;
@@ -2212,26 +2493,26 @@ a.regular-link::after {
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
           transition: transform 0.3s ease-in-out;
 }
-/* line 129, ../scss/_site-styles.scss */
+/* line 205, ../scss/_site-styles.scss */
 a.regular-link:hover::after {
   background: #ef4d75;
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
 }
-/* line 134, ../scss/_site-styles.scss */
+/* line 210, ../scss/_site-styles.scss */
 a.regular-link--no-margin {
   margin: 0;
 }
 
-/* line 139, ../scss/_site-styles.scss */
+/* line 215, ../scss/_site-styles.scss */
 .tabs__pane:nth-of-type(n+10) {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
 }
 
-/* line 143, ../scss/_site-styles.scss */
+/* line 219, ../scss/_site-styles.scss */
 .fa-github, .fa-external-link-square {
   font-size: 1.2em;
   margin-right: 0.2em;
@@ -2239,22 +2520,69 @@ a.regular-link--no-margin {
   color: #171515;
 }
 
-/* line 150, ../scss/_site-styles.scss */
+/* line 226, ../scss/_site-styles.scss */
 .image--height-override {
   height: 30em;
   width: auto;
 }
 
-/* line 155, ../scss/_site-styles.scss */
+/* line 231, ../scss/_site-styles.scss */
 .carousel-arrow-bg-override {
   mix-blend-mode: difference;
 }
 
-/* line 159, ../scss/_site-styles.scss */
+/* line 235, ../scss/_site-styles.scss */
 footer {
   text-align: center;
   background: #373b44;
   padding: 1em;
+}
+
+/* line 241, ../scss/_site-styles.scss */
+.screen-resolution-display {
+  margin: 0.5em;
+  font-size: 0.7em;
+  text-align: center;
+}
+/* line 246, ../scss/_site-styles.scss */
+.screen-resolution-display.screen-width-4 {
+  display: none;
+}
+@media (min-width: 1024px) {
+  /* line 246, ../scss/_site-styles.scss */
+  .screen-resolution-display.screen-width-4 {
+    display: block;
+  }
+}
+/* line 254, ../scss/_site-styles.scss */
+.screen-resolution-display.screen-width-3 {
+  display: none;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  /* line 254, ../scss/_site-styles.scss */
+  .screen-resolution-display.screen-width-3 {
+    display: block;
+  }
+}
+/* line 262, ../scss/_site-styles.scss */
+.screen-resolution-display.screen-width-2 {
+  display: none;
+}
+@media (min-width: 360px) and (max-width: 599px) {
+  /* line 262, ../scss/_site-styles.scss */
+  .screen-resolution-display.screen-width-2 {
+    display: block;
+  }
+}
+/* line 270, ../scss/_site-styles.scss */
+.screen-resolution-display.screen-width-1 {
+  display: none;
+}
+@media (max-width: 360px) {
+  /* line 270, ../scss/_site-styles.scss */
+  .screen-resolution-display.screen-width-1 {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=portfolio.css.map */

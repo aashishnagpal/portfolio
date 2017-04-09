@@ -3,39 +3,100 @@
   $gutter-width: 1.6% !default;
 
   &__container {
-    width: 100%;
-    max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    display: flex;
-    flex-direction: column;
+
+    &::after {
+      display: table;
+      clear: both;
+      content: '';
+    }
+
+    //@media (max-width: 780px) {
+    //  width: 90%;
+    //}
+    //
+    //@media (max-width: 550px) {
+    //  width: 90%;
+    //}
   }
 
   &__row {
-    display: flex;
+    width: 100%;
+
+    &::after {
+      display: table;
+      clear: both;
+      content: '';
+    }
   }
 
   &__column {
+    display: block;
+    float: left;
     margin: 1% 0 1% $gutter-width;
 
     &:first-child {
       margin-left: 0;
     }
+
+    @media (max-width: 700px) {
+      margin: 1% 0;
+    }
+  }
+
+  @function get-atomic-width($columns, $gutter-width) {
+    @return (100 - ($gutter-width * ($columns - 1))) / $columns;
   }
 
   @function col-width($columns, $gutter-width, $col-size) {
-    $atomic-width: (100 - ($gutter-width * ($columns - 1))) / $columns;
-
-    $col-content-width: $atomic-width * $col-size;
+    $col-content-width: $col-size * get-atomic-width($columns, $gutter-width);
     $added-gutter: ($col-size - 1) * $gutter-width;
 
-    @return floor(($col-content-width + $added-gutter) * 100) / 100;
+    @return floor(($col-content-width + $added-gutter) * 100000) / 100000;
   }
 
   @for $col-size from 1 through $columns {
     &__col-size-#{$col-size}-of-#{$columns} {
       width: col-width($columns, $gutter-width, $col-size);
+
+      // TODO needs work here to make general width adjustments
+      //@media (max-width: 750px) {
+      //  width: col-width($columns, $gutter-width, $col-size);
+      //}
+
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+    }
+  }
+
+  @function offset-margin($columns, $gutter-width, $col-size) {
+    $offset-width: $col-size * get-atomic-width($columns, $gutter-width);
+    $added-gutter: $col-size * $gutter-width;
+
+    @return floor(($offset-width + $added-gutter + $gutter-width) * 100000) / 100000;
+  }
+
+  @for $col-size from 1 through ($columns - 1) {
+    $offset: offset-margin($columns, $gutter-width, $col-size);
+    &__offset-by-#{$col-size}-col {
+      margin-left: $offset;
+
+      &:first-child {
+        margin-left: $offset - $gutter-width;
+      }
+
+      @media (max-width: 700px) {
+        margin-left: 0;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
+

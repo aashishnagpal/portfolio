@@ -13,6 +13,82 @@ header h1 {
   color: $font-highlight-color;
   margin: 0.2em 0 !important;
   font-size: 2.5em;
+
+  @media (max-width: 750px) {
+    font-size: 3em;
+  }
+}
+
+.off-canvas-menu-btn {
+  background: $generic-bg-color;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  right: 1em;
+  margin-top: 0.5em;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: $infinity - 9;
+
+  @media (max-width: 700px) {
+    display: flex;
+  }
+}
+
+.icon {
+  position: relative;
+
+  &, &::before, &::after {
+    transition: all 0.4s ease;
+  }
+
+  &.menu {
+    width: 2.5em;
+    height: 0.2em;
+    background-color: currentColor;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background-color: currentColor;
+    }
+
+    &::before {
+      top: -0.65em;
+      height: 0.25em;
+    }
+
+    &::after {
+      top: 0.6em;
+      height: 0.25em;
+    }
+  }
+
+  &.close {
+    width: 3em;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 0.2em;
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
 }
 
 .nav__search {
@@ -160,4 +236,42 @@ footer {
   text-align: center;
   background: nth($color-palette, 1);
   padding: 1em;
+}
+
+.screen-resolution-display {
+  margin: 0.5em;
+  font-size: 0.7em;
+  text-align: center;
+
+  &.screen-width-4 {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &.screen-width-3 {
+    display: none;
+
+    @media (min-width: 600px) and (max-width: 1023px) {
+      display: block;
+    }
+  }
+
+  &.screen-width-2 {
+    display: none;
+
+    @media (min-width: 360px) and (max-width: 599px) {
+      display: block;
+    }
+  }
+
+  &.screen-width-1 {
+    display: none;
+
+    @media (max-width: 360px) {
+      display: block;
+    }
+  }
 }

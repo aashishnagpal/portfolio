@@ -24,6 +24,9 @@
     <div class="eui-grid__row">
       <h1 class="eui-grid__column eui-grid__col-size-12-of-12">Aashish Nagpal</h1>
     </div>
+    <div class="off-canvas-menu-btn">
+      <div class="menu icon"></div>
+    </div>
     <nav data-scrollspy>
       <ul class="eui-grid__row nav">
         <li class="eui-grid__column eui-grid__col-size-2-of-12 nav__item nav__item--active">
@@ -41,10 +44,11 @@
         <li class="eui-grid__column eui-grid__col-size-2-of-12 nav__item">
           <a class="nav__link" href="#contact">contact</a>
         </li>
-        <li id="search" class="eui-grid__column eui-grid__col-size-2-of-12 nav__search">
+        <li id="search" class="eui-grid__column eui-grid__col-size-3-of-12 eui-grid__offset-by-1-col nav__search">
           <input type="text" id="search-input" class="nav__search-input">
           <label for="search-input" class="nav__search-label">search</label>
-          <button id="btn-search" class="nav__search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <button id="btn-search"
+                  class="nav__search-button c-modal-trigger"><i class="fa fa-search" aria-hidden="true"></i></button>
         </li>
       </ul>
     </nav>
@@ -1184,11 +1188,28 @@
 <footer>
 &copy; 2017 &mdash; Aashish Nagpal
 </footer>
+<div class="c-modal-overlay" style="visibility: hidden;"></div>
+<div id="modal" class="c-modal c-modal--basic">
+  <div class="c-modal__content">
+    <h3 class="c-modal__header">Search</h3>
+    <p class="c-modal__body">
+      The search is currently disabled.
+    </p>
+  </div>
+  <div class="c-modal__footer">
+    <a href="#!" class="c-modal__close">close</a>
+  </div>
+  <div class="screen-resolution-display screen-width-1">Device Width &lt; 360px</div>
+  <div class="screen-resolution-display screen-width-2">360px &lt; Device Width &lt; 600px</div>
+  <div class="screen-resolution-display screen-width-3">600px &lt; Device Width &lt; 1024px</div>
+  <div class="screen-resolution-display screen-width-4">Device Width &gt; 1024px</div>
+</div>
 <script src="js/app.js"></script>
 <script src="js/scrollspy-nav.js"></script>
 <script src="js/bar-graph.js"></script>
 <script src="js/percentage-graph.js"></script>
 <script src="js/tabs.js"></script>
 <script src="js/carousel.js"></script>
+<script src="js/modals.js"></script>
 </body>
 </html>

@@ -20,16 +20,11 @@
         bottom: window.pageYOffset + domTarget.getBoundingClientRect().bottom // this will become the end bound condition for active nav item
       });
 
-      listItems.push(element.parentNode);
+      listItems.push(element);
       // Add a click event listener on each nav__item
-      element.parentNode.addEventListener('click', function () {
-        listItems.forEach(function (item) {
-          if (item.classList.contains('nav__item--active')) {
-            item.classList.remove('nav__item--active');
-          }
-        });
-        this.classList.add('nav__item--active');
-        window.location = element.href;
+      element.addEventListener('click', function () {
+        console.log('test');
+        document.querySelector('.off-canvas-menu-btn').click();
       });
     });
 

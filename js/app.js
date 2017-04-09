@@ -15,4 +15,12 @@
       document.querySelector('nav').classList.remove('nav--sticky');
     }
   });
+
+  window.addEventListener('load', function () {
+    document.querySelector('.off-canvas-menu-btn').addEventListener('click', function () {
+      this.querySelector('.icon').classList.toggle('menu');
+      this.querySelector('.icon').classList.toggle('close');
+      document.querySelector('.off-canvas-menu-btn + nav .nav').classList.toggle('nav--is-open');
+    })
+  });
 })();

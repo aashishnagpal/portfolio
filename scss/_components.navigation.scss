@@ -8,47 +8,86 @@ $nav__item--animation-easing: ease-in-out;
   padding: 0;
   margin: 0;
   width: 100%;
+  background: transparent;
+  color: $font-generic-color;
 
-  @at-root %transparent {
-    background: transparent;
-    color: $font-generic-color;
-  }
+  @media (max-width: 700px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 90vw;
+    padding-top: 5em;
+    padding-left: 2.5em;
+    transform: translate(101%);
+    transition: transform 0.7s ease-in-out;
+    background: $generic-bg-color;
+    z-index: $infinity - 10;
 
-  &, &--horizontal {
-    @extend %transparent;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &--vertical {
-    &-left, &-right {
-      @extend %transparent;
-      flex-direction: column;
-      max-height: 100vh;
-      height: auto;
+    &--is-open {
+      transform: translate(0);
     }
   }
 
   &--sticky {
-    background: #40444f;
+    background: $generic-bg-color;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: $infinity - 10;
     padding-top: 1.5em;
+
+    @media (max-width: 700px) {
+      padding-top: 0;
+    }
   }
 
   &__item {
     position: relative;
     text-align: center;
     font-size: 1.5em;
-    cursor: pointer;
-    flex: 1;
+
+    @media (max-width: 700px) {
+      text-align: left;
+    }
+
+    &--active {
+      color: $font-highlight-color;
+    }
+  }
+
+  &__link {
+
+    &::before, &::after {
+      font-family: $source-code-pro-font;
+      font-size: 1.15em;
+      position: absolute;
+      top: 0;
+      transition: transform 0.3s linear;
+
+      @media (max-width: 700px) {
+        display: none;
+      }
+    }
+
+    &::before {
+      content: '<';
+      left: -0.75em;
+    }
+
+    &::after {
+      content: '>';
+      right: -0.75em;
+    }
 
     &:hover {
       color: $font-highlight-color;
       animation: nav__item--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
+
+      @media (max-width: 700px) {
+        animation: none;
+      }
 
       &::before {
         color: $font-highlight-color;
@@ -60,43 +99,17 @@ $nav__item--animation-easing: ease-in-out;
         animation: nav__item-after--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
       }
     }
-
-    &::before, &::after {
-      font-family: $source-code-pro-font;
-      font-size: 1.15em;
-      position: absolute;
-      top: 0;
-      transition: transform 0.3s linear;
-    }
-
-    &::before {
-      content: '<';
-      left: 5%;
-      left: calc(5%);
-    }
-
-    &::after {
-      content: '>';
-      right: 5%;
-      right: calc(5%);
-    }
-
-    &--active {
-      color: $font-highlight-color;
-    }
   }
 }
 
 @keyframes nav__item-before--hover-anime {
   50% {
-    left: 49%;
     left: calc(49%);
   }
 }
 
 @keyframes nav__item-after--hover-anime {
   50% {
-    right: 49%;
     right: calc(49%);
   }
 }
