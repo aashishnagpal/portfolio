@@ -1340,8 +1340,15 @@ ul {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  text-align: center;
 }
-/* line 6, ../scss/_components.percentage-graph.scss */
+@media (max-width: 650px) {
+  /* line 1, ../scss/_components.percentage-graph.scss */
+  .pc-graph-container {
+    font-size: 0.8em;
+  }
+}
+/* line 11, ../scss/_components.percentage-graph.scss */
 .pc-graph {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1351,7 +1358,7 @@ ul {
   height: 2em;
   border-radius: 2px;
 }
-/* line 12, ../scss/_components.percentage-graph.scss */
+/* line 17, ../scss/_components.percentage-graph.scss */
 .pc-graph__section {
   height: 100%;
   display: -webkit-box;
@@ -1368,11 +1375,11 @@ ul {
           align-items: center;
   width: 0;
 }
-/* line 20, ../scss/_components.percentage-graph.scss */
+/* line 24, ../scss/_components.percentage-graph.scss */
 .pc-graph__section:nth-of-type(2n+1) {
   background: #ef4d75;
 }
-/* line 23, ../scss/_components.percentage-graph.scss */
+/* line 27, ../scss/_components.percentage-graph.scss */
 .pc-graph__section:nth-of-type(2n) {
   background: #5b616f;
 }
@@ -1875,13 +1882,19 @@ ul {
   /* set perspective for 3D effect*/
   margin: 0 auto;
 }
+@media (max-width: 450px) {
+  /* line 1, ../scss/_components.business-card.scss */
+  .card-container {
+    width: 32em;
+  }
+}
 
-/* line 9, ../scss/_components.business-card.scss */
+/* line 13, ../scss/_components.business-card.scss */
 #card-flip {
   display: none;
 }
 
-/* line 13, ../scss/_components.business-card.scss */
+/* line 17, ../scss/_components.business-card.scss */
 .card {
   width: 100%;
   height: 100%;
@@ -1895,7 +1908,7 @@ ul {
           transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* line 22, ../scss/_components.business-card.scss */
+/* line 26, ../scss/_components.business-card.scss */
 label[for="card-flip"], #flip-card-icon {
   font-size: 1.7em;
   display: inline-block;
@@ -1906,33 +1919,33 @@ label[for="card-flip"], #flip-card-icon {
   z-index: 1;
 }
 
-/* line 32, ../scss/_components.business-card.scss */
+/* line 36, ../scss/_components.business-card.scss */
 label[for="card-flip"] {
   width: 1.5em;
   height: 1.5em;
 }
 
 /* Hover effect in 3D */
-/* line 39, ../scss/_components.business-card.scss */
+/* line 43, ../scss/_components.business-card.scss */
 label[for="card-flip"]:hover + .card {
   -webkit-transform: rotateX(20deg);
           transform: rotateX(20deg);
   box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
 }
-/* line 43, ../scss/_components.business-card.scss */
+/* line 47, ../scss/_components.business-card.scss */
 label[for="card-flip"]:hover + .card > #flip-card-icon {
   color: #ef4d75;
 }
 
 /* Flip effect using checkbox */
-/* line 49, ../scss/_components.business-card.scss */
+/* line 53, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
 
 /* reverse hover effect for flipped card */
-/* line 54, ../scss/_components.business-card.scss */
+/* line 58, ../scss/_components.business-card.scss */
 #card-flip:checked + label[for="card-flip"]:hover + .card {
   -webkit-transform: rotateX(160deg);
           transform: rotateX(160deg);
@@ -1943,7 +1956,7 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
 /* also transforms in 3D along with the rest of the card */
 /* Note to self: do not use z-index as it */
 /* does not give the desired result and also meddles with backface-visibility */
-/* line 63, ../scss/_components.business-card.scss */
+/* line 67, ../scss/_components.business-card.scss */
 #flip-card-icon {
   margin: 0.2em 0.3em;
   -webkit-transform: translate3d(0, 0, 0.1em);
@@ -1952,21 +1965,21 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           transition: transform 0s linear 0.5s;
 }
 @media (max-width: 550px) {
-  /* line 63, ../scss/_components.business-card.scss */
+  /* line 67, ../scss/_components.business-card.scss */
   #flip-card-icon {
     color: #ef4d75;
   }
 }
 
 /* another necessary declaration for translating the same flipping icon to the backface */
-/* line 75, ../scss/_components.business-card.scss */
+/* line 79, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card > #flip-card-icon {
   -webkit-transform: translate3d(0, 10.4em, -0.1em);
           transform: translate3d(0, 10.4em, -0.1em);
 }
 
 /* set position and backface-visibility of the card's front and back faces */
-/* line 80, ../scss/_components.business-card.scss */
+/* line 84, ../scss/_components.business-card.scss */
 .card > [class|="card"] {
   margin: 0;
   position: absolute;
@@ -1976,7 +1989,7 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
   height: 100%;
 }
 
-/* line 88, ../scss/_components.business-card.scss */
+/* line 92, ../scss/_components.business-card.scss */
 .card-front {
   background: url(../images/bg2.png);
   padding: 1.5em;
@@ -1984,7 +1997,7 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           transform: rotateX(0deg);
 }
 
-/* line 94, ../scss/_components.business-card.scss */
+/* line 98, ../scss/_components.business-card.scss */
 .card-back {
   background: url(../images/card-back.jpg);
   background-size: 100% 100%;
@@ -1993,27 +2006,27 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
 }
 
 /* Following declarations style the content within the card */
-/* line 102, ../scss/_components.business-card.scss */
+/* line 106, ../scss/_components.business-card.scss */
 .name {
   font-size: 3em;
   font-weight: 300;
   margin: 0;
 }
 
-/* line 108, ../scss/_components.business-card.scss */
+/* line 112, ../scss/_components.business-card.scss */
 .title {
   font-size: 1em;
   font-weight: 300;
   margin: 0 0 2em;
 }
 
-/* line 114, ../scss/_components.business-card.scss */
+/* line 118, ../scss/_components.business-card.scss */
 .message {
   margin: 0 0 0.5em;
   font-weight: 300;
 }
 
-/* line 119, ../scss/_components.business-card.scss */
+/* line 123, ../scss/_components.business-card.scss */
 .links {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2025,12 +2038,12 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           justify-content: space-between;
 }
 
-/* line 124, ../scss/_components.business-card.scss */
+/* line 128, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card .links {
   visibility: hidden;
 }
 
-/* line 128, ../scss/_components.business-card.scss */
+/* line 132, ../scss/_components.business-card.scss */
 .social {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2043,12 +2056,12 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           align-items: baseline;
 }
 
-/* line 134, ../scss/_components.business-card.scss */
+/* line 138, ../scss/_components.business-card.scss */
 #card-flip:checked ~ .card .social {
   visibility: hidden;
 }
 
-/* line 138, ../scss/_components.business-card.scss */
+/* line 142, ../scss/_components.business-card.scss */
 .encyclopedia {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -2060,32 +2073,32 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
           align-items: flex-end;
 }
 
-/* line 144, ../scss/_components.business-card.scss */
+/* line 148, ../scss/_components.business-card.scss */
 .encyclopedia a:hover::after {
   background: #9c5fe6;
 }
 
-/* line 149, ../scss/_components.business-card.scss */
+/* line 153, ../scss/_components.business-card.scss */
 .encyclopedia div {
   display: inline-block;
 }
 
-/* line 153, ../scss/_components.business-card.scss */
+/* line 157, ../scss/_components.business-card.scss */
 .encyclopedia div p {
   margin: 0.1em 0.5em;
 }
 
-/* line 157, ../scss/_components.business-card.scss */
+/* line 161, ../scss/_components.business-card.scss */
 .encyclopedia img {
   vertical-align: bottom;
 }
 
-/* line 161, ../scss/_components.business-card.scss */
+/* line 165, ../scss/_components.business-card.scss */
 .encyclopedia-label {
   color: #9c5fe6;
 }
 
-/* line 165, ../scss/_components.business-card.scss */
+/* line 169, ../scss/_components.business-card.scss */
 .other-social-media {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -2094,12 +2107,12 @@ label[for="card-flip"]:hover + .card > #flip-card-icon {
   text-align: right;
 }
 
-/* line 170, ../scss/_components.business-card.scss */
+/* line 174, ../scss/_components.business-card.scss */
 .other-social-media a {
   margin-left: 0.5em;
 }
 
-/* line 174, ../scss/_components.business-card.scss */
+/* line 178, ../scss/_components.business-card.scss */
 .other-social-media img {
   vertical-align: bottom;
 }
