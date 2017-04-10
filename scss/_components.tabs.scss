@@ -23,7 +23,7 @@
 
   &__tab {
     cursor: pointer;
-    color: nth($color-palette, 6);
+    color: lighten(nth($color-palette, 6), 10%);
     border-bottom: 0.3em solid;
     padding: 1em 1em 0.5em 0.1em;
     margin-right: 0.3em;

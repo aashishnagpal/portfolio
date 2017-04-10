@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var modalTriggers = document.querySelectorAll('.c-modal-trigger');
   var modalTriggersArr = [].slice.call(modalTriggers);
   var closeBtns = document.querySelectorAll('.c-modal__close');
@@ -20,7 +20,7 @@
   }
 
   function addCloseHandler(closeBtn) {
-    closeBtn.addEventListener('click', function() {
+    closeBtn.addEventListener('click', function () {
       closeModal();
     });
   }
@@ -28,7 +28,7 @@
   function addTriggerHandler(trigger) {
     var index = modalTriggersArr.indexOf(trigger);
 
-    trigger.addEventListener('click', function() {
+    trigger.addEventListener('click', function () {
       if (index == 1) {
         overlayClass = 'c-modal-overlay--full';
       } else {

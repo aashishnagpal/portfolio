@@ -16,7 +16,7 @@
   position: relative;
   transform-style: preserve-3d; /* this applies/preserves the perspective evenly over children */
   transform: rotateX(0deg);
-  transition: transform 3s cubic-bezier(0.19, 1.00, 0.22, 1.00), box-shadow 3s cubic-bezier(0.19, 1.00, 0.22, 1.00);
+  transition: transform 2s cubic-bezier(0.19, 1.00, 0.22, 1.00), box-shadow 3s cubic-bezier(0.19, 1.00, 0.22, 1.00);
 }
 
 %flip-card {
@@ -65,6 +65,10 @@ label[for="card-flip"]:hover + .card {
   margin: 0.2em 0.3em;
   transform: translate3d(0, 0, 0.1em);
   transition: transform 0s linear 0.5s;
+
+  @media (max-width: 550px) {
+    color: $font-highlight-color;
+  }
 }
 
 /* another necessary declaration for translating the same flipping icon to the backface */
@@ -117,22 +121,18 @@ label[for="card-flip"]:hover + .card {
   justify-content: space-between;
 }
 
-.regular-link {
-  color: $font-highlight-color;
-
-  &:hover {
-    color: $font-generic-color;
-  }
-
-  &:hover::after {
-    background: $font-highlight-color;
-  }
+#card-flip:checked ~ .card .links { // For ARIA
+  visibility: hidden;
 }
 
 .social {
   display: flex;
   margin-top: 2.8em;
   align-items: baseline;
+}
+
+#card-flip:checked ~ .card .social { // For ARIA
+  visibility: hidden;
 }
 
 .encyclopedia {

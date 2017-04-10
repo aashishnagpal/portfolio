@@ -55,6 +55,25 @@ $nav__item--animation-easing: ease-in-out;
     &--active {
       color: $font-highlight-color;
     }
+
+    &:hover > .nav__link {
+      color: $font-highlight-color;
+      animation: nav__item--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
+
+      @media (max-width: 700px) {
+        animation: none;
+      }
+
+      &::before {
+        color: $font-highlight-color;
+        animation: nav__item-before--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
+      }
+
+      &::after {
+        color: $font-highlight-color;
+        animation: nav__item-after--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
+      }
+    }
   }
 
   &__link {
@@ -79,25 +98,6 @@ $nav__item--animation-easing: ease-in-out;
     &::after {
       content: '>';
       right: -0.75em;
-    }
-
-    &:hover {
-      color: $font-highlight-color;
-      animation: nav__item--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
-
-      @media (max-width: 700px) {
-        animation: none;
-      }
-
-      &::before {
-        color: $font-highlight-color;
-        animation: nav__item-before--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
-      }
-
-      &::after {
-        color: $font-highlight-color;
-        animation: nav__item-after--hover-anime $nav__item--animation-timing $nav__item--animation-easing;
-      }
     }
   }
 }

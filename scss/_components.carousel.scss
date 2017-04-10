@@ -27,6 +27,8 @@
   bottom: 4%;
   z-index: 50;
   width: 100%;
+  mix-blend-mode: exclusion;
+
   &-item {
     // bullet nav li
     display: inline;
@@ -94,6 +96,7 @@
     &.slide--slide-next {
       animation: c-carousel--slideFromRight 1s ease;
     }
+
     &.slide--slide-prev {
       animation: c-carousel--slideFromLeft 1s ease;
     }

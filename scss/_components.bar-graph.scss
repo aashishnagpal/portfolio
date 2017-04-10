@@ -26,7 +26,6 @@
       align-items: flex-end;
       flex: 0 1 20%;
 
-
       &-value {
         padding: 0.5em 0 1.5em 0.1em;
         flex-basis: 25%;
@@ -57,9 +56,13 @@
         position: absolute;
         bottom: -2.5em;
         transform-origin: top left;
-        transform: rotate(45deg) translate(0.8em, -1.2em);
+        transform: rotate(45deg) translate(1em, -0.75em);
         white-space: nowrap;
       }
+    }
+
+    + .bar-graph {
+      margin-top: 5em;
     }
   }
 }

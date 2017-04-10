@@ -20,14 +20,13 @@ header h1 {
 }
 
 .off-canvas-menu-btn {
-  background: $generic-bg-color;
+  background: nth($color-palette, 5);
   width: 4em;
   height: 4em;
   border-radius: 50%;
   position: fixed;
-  top: 0;
+  top: 1em;
   right: 1em;
-  margin-top: 0.5em;
   display: none;
   justify-content: center;
   align-items: center;
@@ -96,6 +95,10 @@ header h1 {
   position: relative;
   flex: 1.5;
 
+  @media (max-width: 700px) {
+    margin-top: 4em;
+  }
+
   &-input {
     background: transparent;
     outline: none;
@@ -139,6 +142,7 @@ header h1 {
 
     &:focus {
       outline: none;
+      color: $font-highlight-color;
     }
   }
 }
@@ -148,9 +152,18 @@ header h1 {
   display: flex;
   align-items: center;
 
+  @media (max-width: 550px) {
+    display: block;
+  }
+
   &__img-container {
     margin-right: 1em;
     flex: 1;
+
+    @media (max-width: 550px) {
+      margin-right: 0;
+      text-align: center;
+    }
   }
 
   &__img {
@@ -158,12 +171,20 @@ header h1 {
     border: 0.3em solid $font-highlight-color;
     width: 10em;
     height: auto;
+
+    @media (min-width: 450px) and (max-width: 550px) {
+      width: 12em;
+    }
   }
 
   &__text {
     flex: 6;
     font-size: 1.5em;
     font-weight: 300;
+
+    @media (min-width: 450px) and (max-width: 550px) {
+      font-size: 1.8em;
+    }
   }
 }
 
@@ -180,13 +201,16 @@ blockquote {
     vertical-align: top;
   }
 
+  @media (min-width: 450px) and (max-width: 550px) {
+    font-size: 1.4em;
+  }
 }
 
 a.regular-link {
   color: $font-highlight-color;
   margin-right: 1em;
 
-  &:hover {
+  &:hover, &:focus {
     color: $font-generic-color;
   }
 
@@ -202,7 +226,7 @@ a.regular-link {
     transition: transform 0.3s ease-in-out;
   }
 
-  &:hover::after {
+  &:hover::after, &:focus::after {
     background: $font-highlight-color;
     transform: scale(1);
   }
@@ -219,7 +243,7 @@ a.regular-link {
 .fa-github, .fa-external-link-square {
   font-size: 1.2em;
   margin-right: 0.2em;
-  vertical-align: middle;
+  vertical-align: baseline;
   color: $github-brand-color;
 }
 

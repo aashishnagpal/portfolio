@@ -1,15 +1,11 @@
 @import "settings.global";
 @import "settings.colors";
-
 @import "generic.normalize";
 @import "generic.box-sizing";
 @import "generic.global";
-
-
 @import "elements.headings";
 @import "elements.links";
 @import "elements.lists";
-
 @import "components.loader";
 @import "components.header-bg";
 @import "components.navigation";
@@ -20,6 +16,4 @@
 @import "components.carousel";
 @import "components.business-card";
 @import "components.modals";
-
-
 @import "site-styles";

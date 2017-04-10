@@ -9,6 +9,7 @@
     overflow: hidden;
   }
 }
+
 .loader {
   display: flex;
   justify-content: center;
@@ -119,13 +120,13 @@
 
 @keyframes rotate3D-positive-axis {
   to {
-    transform: rotate3d(1,1,0,180deg);
+    transform: rotate3d(1, 1, 0, 180deg);
   }
 }
 
 @keyframes rotate3D-negative-axis {
   to {
-    transform: rotate3d(-1,1,0,-180deg);
+    transform: rotate3d(-1, 1, 0, -180deg);
   }
 }
 

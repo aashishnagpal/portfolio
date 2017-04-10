@@ -23,7 +23,6 @@
       listItems.push(element);
       // Add a click event listener on each nav__item
       element.addEventListener('click', function () {
-        console.log('test');
         document.querySelector('.off-canvas-menu-btn').click();
       });
     });

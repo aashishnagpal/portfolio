@@ -21,6 +21,19 @@
       this.querySelector('.icon').classList.toggle('menu');
       this.querySelector('.icon').classList.toggle('close');
       document.querySelector('.off-canvas-menu-btn + nav .nav').classList.toggle('nav--is-open');
-    })
+    });
+
+    document.getElementById('search-input').addEventListener('keydown', function (event) {
+      var key = event.key || 0;
+      var keyCode = event.keyCode || 0;
+      if ((key && key === 'Enter') || (keyCode && keyCode === 13)) {
+        document.getElementById('btn-search').click();
+        document.querySelector('.c-modal__close').focus();
+      }
+    });
+
+    document.querySelector('.c-modal__close').addEventListener('click', function () {
+      document.getElementById('search-input').focus();
+    });
   });
 })();
