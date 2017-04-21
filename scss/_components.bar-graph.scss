@@ -3,17 +3,16 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 0 3em;
 
   @at-root .bar-graph {
     display: flex;
     flex-wrap: wrap;
-    margin: 2.5em 1em;
+    margin: 3em 1.5em 6em;
     flex: 0 1 26em;
     border-bottom: 1px solid $generic-fg-color;
 
     &__heading {
-      margin: 1em 0;
+      margin: 0 0 1em;
       font-size: 1.5em;
       font-weight: normal;
       text-align: center;
@@ -59,10 +58,6 @@
         transform: rotate(45deg) translate(1em, -0.75em);
         white-space: nowrap;
       }
-    }
-
-    + .bar-graph {
-      margin-top: 5em;
     }
   }
 }

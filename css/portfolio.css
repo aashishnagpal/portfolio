@@ -932,7 +932,7 @@ ul {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 90vw;
+    width: 65vw;
     padding-top: 5em;
     padding-left: 2.5em;
     -webkit-transform: translate(101%);
@@ -1081,9 +1081,8 @@ ul {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 0 3em;
 }
-/* line 8, ../scss/_components.bar-graph.scss */
+/* line 7, ../scss/_components.bar-graph.scss */
 .bar-graph {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1092,16 +1091,16 @@ ul {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin: 2.5em 1em;
+  margin: 3em 1.5em 6em;
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 26em;
       -ms-flex: 0 1 26em;
           flex: 0 1 26em;
   border-bottom: 1px solid #e2eafa;
 }
-/* line 15, ../scss/_components.bar-graph.scss */
+/* line 14, ../scss/_components.bar-graph.scss */
 .bar-graph__heading {
-  margin: 1em 0;
+  margin: 0 0 1em;
   font-size: 1.5em;
   font-weight: normal;
   text-align: center;
@@ -1110,7 +1109,7 @@ ul {
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
 }
-/* line 23, ../scss/_components.bar-graph.scss */
+/* line 22, ../scss/_components.bar-graph.scss */
 .bar-graph__legend {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1130,14 +1129,14 @@ ul {
       -ms-flex: 0 1 20%;
           flex: 0 1 20%;
 }
-/* line 29, ../scss/_components.bar-graph.scss */
+/* line 28, ../scss/_components.bar-graph.scss */
 .bar-graph__legend-value {
   padding: 0.5em 0 1.5em 0.1em;
   -webkit-flex-basis: 25%;
       -ms-flex-preferred-size: 25%;
           flex-basis: 25%;
 }
-/* line 35, ../scss/_components.bar-graph.scss */
+/* line 34, ../scss/_components.bar-graph.scss */
 .bar-graph__bars {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1158,7 +1157,7 @@ ul {
   height: 13em;
   min-height: 13em;
 }
-/* line 45, ../scss/_components.bar-graph.scss */
+/* line 44, ../scss/_components.bar-graph.scss */
 .bar-graph__bar {
   width: 2em;
   height: 0;
@@ -1170,7 +1169,7 @@ ul {
   box-shadow: 1px 0 1px #5b616f;
   position: relative;
 }
-/* line 55, ../scss/_components.bar-graph.scss */
+/* line 54, ../scss/_components.bar-graph.scss */
 .bar-graph__bar-title {
   position: absolute;
   bottom: -2.5em;
@@ -1181,10 +1180,6 @@ ul {
       -ms-transform: rotate(45deg) translate(1em, -0.75em);
           transform: rotate(45deg) translate(1em, -0.75em);
   white-space: nowrap;
-}
-/* line 64, ../scss/_components.bar-graph.scss */
-.bar-graph + .bar-graph {
-  margin-top: 5em;
 }
 
 /* line 61, ../scss/_components.tooltips.scss */
